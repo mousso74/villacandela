@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://www.villacandeladenia.com/" />
 <meta property="og:title" content="Villa Candela — Mediterranes Refugium am Montgó, Dénia" />
 <meta property="og:description" content="Ein außergewöhnliches Anwesen an der Costa Blanca: drei Wohneinheiten, Pool, großer Garten, fußläufig zu Hafen und Meer." />
-<meta property="og:image" content="assets/img/hero/hero.jpg" />
+<meta property="og:image" content="assets/img/01_hero/01.jpg" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:locale:alternate" content="en_GB" />
 <meta property="og:locale:alternate" content="es_ES" />
@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Villa Candela — Dénia, Costa Blanca" />
 <meta name="twitter:description" content="Mediterranes Anwesen am Montgó. Drei Wohneinheiten, Pool, großer Garten." />
-<meta name="twitter:image" content="assets/img/hero/hero.jpg" />
+<meta name="twitter:image" content="assets/img/01_hero/01.jpg" />
 
 <link rel="alternate" hreflang="de" href="https://www.villacandeladenia.com/?lang=de" />
 <link rel="alternate" hreflang="en" href="https://www.villacandeladenia.com/?lang=en" />
@@ -132,7 +132,7 @@ tailwind.config={theme:{extend:{
 
 <!-- HERO -->
 <section id="hero" class="relative h-screen min-h-[640px] w-full flex items-center justify-center text-center">
-  <img src="assets/img/hero/hero.jpg" alt="Villa Candela, Luftaufnahme" class="absolute inset-0 w-full h-full object-cover" />
+  <img src="assets/img/01_hero/01.jpg?v=2" alt="Villa Candela, Luftaufnahme" class="absolute inset-0 w-full h-full object-cover" />
   <div class="absolute inset-0 hero-scrim"></div>
   <div class="relative z-10 px-6 max-w-3xl hero-text">
     <svg width="88" height="88" viewBox="0 0 60 60" class="mx-auto mb-6" aria-hidden="true">
@@ -195,20 +195,26 @@ tailwind.config={theme:{extend:{
 
 <!-- DREI EINHEITEN -->
 <section id="apartments" class="py-20 md:py-28 bg-cream">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 items-center">
-    <div data-reveal>
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <!-- Überschrift über beiden Spalten -->
+    <div class="mb-10" data-reveal>
       <p class="kicker text-amber text-[11px] uppercase mb-4" data-i18n="apt_kicker">Flexibel wohnen</p>
-      <h2 class="font-serif text-4xl md:text-5xl mb-6" data-i18n="apt_title">Drei Welten unter einem Dach</h2>
-      <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b1">Die Hauptwohnung mit Wohn-, Ess- und Kaminzimmer öffnet sich zur Terrasse mit Montgó-Blick. Darüber thront die Turm-Suite mit eigenem Bad und Dachterrasse.</p>
-      <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b2">Im Erdgeschoss liegen zwei eigenständige Apartments mit separatem Zugang — innen über eine abschließbare Tür verbunden. So lassen sie sich zusammenlegen, einzeln nutzen, an Gäste vergeben oder vermieten.</p>
-      <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b3">Diese Aufteilung macht Villa Candela ebenso passend für Mehrgenerationenfamilien wie für Eigentümer mit Renditeabsicht.</p>
-      <p class="text-inksoft text-base font-light border-l-2 border-amber pl-4 py-1" data-i18n="apt_uses">Ob Großfamilie mit drei Generationen, Freundesgruppe im gemeinsamen Urlaub oder Eigennutzer mit Vermietungsabsicht — diese Villa passt sich Ihnen an, nicht umgekehrt.</p>
+      <h2 class="font-serif text-4xl md:text-5xl" data-i18n="apt_title">Drei Welten unter einem Dach</h2>
     </div>
-    <div class="grid grid-cols-2 gap-3" data-reveal>
-      <img src="assets/img/exterior/drone_topdown.jpg" class="rounded-xl w-full h-48 object-cover cursor-pointer" onclick="openLb(this.src)" alt="Villa Candela – Luftaufnahme senkrecht mit Pool und Garten" />
-      <img src="assets/img/interior/turmzimmer.jpg" class="rounded-xl w-full h-48 object-cover cursor-pointer" onclick="openLb(this.src)" alt="Turmzimmer – Rundes Mauerwerk und Holzbalken" />
-      <img src="assets/img/interior/terrasse_ost.jpg" class="rounded-xl w-full h-48 object-cover cursor-pointer" onclick="openLb(this.src)" alt="Terrasse Ost – Sitzbereich mit Montgó-Blick" />
-      <img src="assets/img/interior/terrasse_turm.jpg" class="rounded-xl w-full h-48 object-cover cursor-pointer" onclick="openLb(this.src)" alt="Dachterrasse Turmzimmer – Panoramablick über Dénia" />
+    <!-- Text + Bilder gleichhoch nebeneinander -->
+    <div class="grid lg:grid-cols-2 gap-14 items-stretch">
+      <div data-reveal class="flex flex-col justify-between">
+        <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b1">Das Master House mit Wohn-, Ess- und Kaminzimmer öffnet sich zur Terrasse mit Montgó-Blick. Darüber thront die Turm-Suite mit eigenem Bad und Dachterrasse.</p>
+        <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b2">Im Erdgeschoss liegen zwei eigenständige Apartments mit separatem Zugang — innen über eine abschließbare Tür verbunden. So lassen sie sich zusammenlegen, einzeln nutzen, an Gäste vergeben oder vermieten.</p>
+        <p class="text-inksoft text-lg font-light mb-5" data-i18n="apt_b3">Diese Aufteilung macht Villa Candela ebenso passend für Mehrgenerationenfamilien wie für Eigentümer mit Renditeabsicht.</p>
+        <p class="text-inksoft text-base font-light border-l-2 border-amber pl-4 py-1" data-i18n="apt_uses">Ob Großfamilie mit drei Generationen, Freundesgruppe im gemeinsamen Urlaub oder Eigennutzer mit Vermietungsabsicht — diese Villa passt sich Ihnen an, nicht umgekehrt.</p>
+      </div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-3 h-full min-h-[320px]" data-reveal>
+        <img src="assets/img/02_drei_welten/01.jpg" class="rounded-xl w-full h-full object-cover cursor-pointer" onclick="openLb(this.src)" data-i18n-alt="alt_dw_01" alt="Villa Candela – Luftaufnahme senkrecht mit Pool und Garten" />
+        <img src="assets/img/02_drei_welten/02.jpg" class="rounded-xl w-full h-full object-cover cursor-pointer" onclick="openLb(this.src)" data-i18n-alt="alt_dw_02" alt="Turmzimmer – Rundes Mauerwerk und Holzbalken" />
+        <img src="assets/img/02_drei_welten/03.jpg" class="rounded-xl w-full h-full object-cover cursor-pointer" onclick="openLb(this.src)" data-i18n-alt="alt_dw_03" alt="Terrasse Ost – Sitzbereich mit Montgó-Blick" />
+        <img src="assets/img/02_drei_welten/04.jpg" class="rounded-xl w-full h-full object-cover cursor-pointer" onclick="openLb(this.src)" data-i18n-alt="alt_dw_04" alt="Dachterrasse Turmzimmer – Panoramablick über Dénia" />
+      </div>
     </div>
   </div>
 </section>
@@ -251,19 +257,19 @@ tailwind.config={theme:{extend:{
       <h2 class="font-serif text-4xl md:text-5xl mb-5" data-i18n="data_title">Gebaut, erweitert, gepflegt</h2>
       <p class="text-inksoft text-lg font-light" data-i18n="data_sub">Ein Haus mit Geschichte und Substanz — von einer Ingenieur- und Architektenfamilie über Jahrzehnte mit Sorgfalt geführt.</p>
     </div>
-    <div class="grid lg:grid-cols-2 gap-12">
+    <div class="grid lg:grid-cols-2 gap-12 items-stretch">
       <div class="space-y-6" data-reveal>
 <div class="flex gap-5"><div class="font-serif text-3xl text-amber w-20 shrink-0">1996</div><div><div class="font-medium" data-i18n="h_1996_t">In Familienbesitz</div><p class="text-inksoft font-light text-sm" data-i18n="h_1996_b">Erwerb durch die Familie, seither durchgehend selbst genutzt.</p></div></div>
         <div class="flex gap-5"><div class="font-serif text-3xl text-amber w-20 shrink-0">1998</div><div><div class="font-medium" data-i18n="h_1998_t">Kernsanierung & bauliche Erweiterung</div><p class="text-inksoft font-light text-sm" data-i18n="h_1998_b">Vollständige Modernisierung und Erweiterung — geplant und umgesetzt mit eigener Architekten- und Ingenieurleistung.</p></div></div>
         <div class="flex gap-5"><div class="font-serif text-3xl text-amber w-20 shrink-0">2008</div><div><div class="font-medium" data-i18n="h_2008_t">Modernisierung</div><p class="text-inksoft font-light text-sm" data-i18n="h_2008_b">Neue Isolierglasfenster, Außentüren und Terrassen.</p></div></div>
         <div class="flex gap-5"><div class="font-serif text-3xl text-amber shrink-0 whitespace-nowrap min-w-[5rem]" data-i18n="h_today">heute</div><div><div class="font-medium" data-i18n="h_care_t">Laufend instand gehalten</div><p class="text-inksoft font-light text-sm" data-i18n="h_care_b">Kontinuierliche Pflege und Werterhaltung — daher trotz des Alters in sehr gutem Zustand.</p></div></div>
       </div>
-      <div class="bg-white rounded-2xl p-8 flex flex-col" data-reveal>
+      <div class="bg-white rounded-2xl p-8 flex flex-col h-full" data-reveal>
         <table class="w-full text-sm">
           <tbody class="divide-y divide-sand">
             <tr><td class="py-3 text-inksoft" data-i18n="dl_units">Wohneinheiten</td><td class="py-3 text-right font-medium">3</td></tr>
             <tr><td class="py-3 text-inksoft whitespace-nowrap" data-i18n="dl_usable">Wohn-/Nutzfläche gesamt</td><td class="py-3 text-right font-medium" data-i18n="dv_usable">360 m² (inkl. Terrassen)</td></tr>
-            <tr><td class="py-2 text-inksoft/70 text-xs pl-4" data-i18n="dl_apt_main">— Hauptapartment</td><td class="py-2 text-right font-medium text-xs" data-i18n="dv_apt_main">Turmzimmer · 3 Terrassen · 220 m²</td></tr>
+            <tr><td class="py-2 text-inksoft/70 text-xs pl-4" data-i18n="dl_apt_main">— Master House</td><td class="py-2 text-right font-medium text-xs" data-i18n="dv_apt_main">Turmzimmer · 3 Terrassen · 220 m²</td></tr>
             <tr><td class="py-2 text-inksoft/70 text-xs pl-4" data-i18n="dl_apt1">— Apartment I</td><td class="py-2 text-right font-medium text-xs" data-i18n="dv_apt1">Terrasse · 80 m²</td></tr>
             <tr><td class="py-2 text-inksoft/70 text-xs pl-4" data-i18n="dl_apt2">— Apartment II</td><td class="py-2 text-right font-medium text-xs" data-i18n="dv_apt2">Terrasse · 60 m²</td></tr>
             <tr><td class="py-3 text-inksoft" data-i18n="dl_plot">Grundstück</td><td class="py-3 text-right font-medium">955 m²</td></tr>
@@ -296,24 +302,24 @@ tailwind.config={theme:{extend:{
     </div>
 
     <!-- Erdgeschoss: volle Breite -->
-    <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift mb-5" onclick="openLb('assets/img/plans/grundriss_eg.png')" data-reveal>
+    <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift mb-5" onclick="openLb('assets/img/07_grundrisse/grundriss_eg.png')" data-reveal>
       <div class="overflow-hidden rounded-lg">
-        <img src="assets/img/plans/grundriss_eg.png" class="w-full" alt="Erdgeschoss – Apartments & Garten mit Pool" loading="lazy" style="filter:url(#sketch-colorize)" />
+        <img src="assets/img/07_grundrisse/grundriss_eg.png" class="w-full" alt="Erdgeschoss – Apartments & Garten mit Pool" loading="lazy" style="filter:url(#sketch-colorize)" />
       </div>
       <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Erdgeschoss · Apartments & Garten</p>
     </div>
 
-    <!-- 2-Spalten-Grid: Hauptappartement, Turmzimmer + 4 Ansichten -->
+    <!-- 2-Spalten-Grid: Master House, Turmzimmer + 4 Ansichten -->
     <div class="grid sm:grid-cols-2 gap-5 mb-5">
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/grundriss_og.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/grundriss_og.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/grundriss_og.png" class="w-full" alt="Hauptappartement – Obergeschoss" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/grundriss_og.png" class="w-full" alt="Master House – Obergeschoss" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
-        <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Hauptappartement · Obergeschoss</p>
+        <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Master House · Obergeschoss</p>
       </div>
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/grundriss_turm.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/grundriss_turm.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/grundriss_turm.png" class="w-full" alt="Turmzimmer – Suite & Dachterrasse" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/grundriss_turm.png" class="w-full" alt="Turmzimmer – Suite & Dachterrasse" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
         <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Turmzimmer · Suite & Dachterrasse</p>
       </div>
@@ -328,29 +334,29 @@ tailwind.config={theme:{extend:{
 
     <!-- 4 Ansichten: 2×2 -->
     <div class="grid sm:grid-cols-2 gap-5 mb-5">
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/suedansicht.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/suedansicht.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/suedansicht.png" class="w-full" alt="Südansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/suedansicht.png" class="w-full" alt="Südansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
         <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Südansicht</p>
       </div>
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/nordansicht.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/nordansicht.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/nordansicht.png" class="w-full" alt="Nordansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/nordansicht.png" class="w-full" alt="Nordansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
         <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Nordansicht</p>
       </div>
     </div>
     <div class="grid sm:grid-cols-2 gap-5">
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/ostansicht.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/ostansicht.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/ostansicht.png" class="w-full" alt="Ostansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/ostansicht.png" class="w-full" alt="Ostansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
         <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Ostansicht</p>
       </div>
-      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/plans/westansicht.png')" data-reveal>
+      <div class="bg-[#FAF6EE] rounded-xl p-5 cursor-pointer lift" onclick="openLb('assets/img/07_grundrisse/westansicht.png')" data-reveal>
         <div class="overflow-hidden rounded-lg">
-          <img src="assets/img/plans/westansicht.png" class="w-full" alt="Westansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
+          <img src="assets/img/07_grundrisse/westansicht.png" class="w-full" alt="Westansicht Villa Candela" loading="lazy" style="filter:url(#sketch-colorize)" />
         </div>
         <p class="text-ink text-center text-[11px] mt-3 uppercase tracking-wider font-medium">Westansicht</p>
       </div>
@@ -374,31 +380,31 @@ tailwind.config={theme:{extend:{
     </div>
     <!-- Zeile 1: 3 Bilder -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-3 md:mb-4">
-      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/location/hafen_abend.jpg')" data-reveal>
-        <img src="assets/img/location/hafen_abend.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" alt="Yachthafen Dénia – Segelboote im Abendlicht" />
+      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/08_lebensgefuehl/01.jpg')" data-reveal>
+        <img src="assets/img/08_lebensgefuehl/01.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" data-i18n-alt="alt_lg_01" alt="Yachthafen Dénia – Segelboote im Abendlicht" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
         <span class="absolute bottom-3 left-4 text-white font-serif text-xl drop-shadow" data-i18n="loc_harbour">Yachthafen</span>
       </div>
-      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/location/montgo_panorama.jpg')" data-reveal>
-        <img src="assets/img/location/montgo_panorama.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" alt="Montgó-Wanderweg – Sonnenuntergang über Dénia" />
+      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/08_lebensgefuehl/02.jpg')" data-reveal>
+        <img src="assets/img/08_lebensgefuehl/02.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" data-i18n-alt="alt_lg_02" alt="Montgó-Wanderweg – Sonnenuntergang über Dénia" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
         <span class="absolute bottom-3 left-4 text-white font-serif text-xl drop-shadow">Montgó</span>
       </div>
-      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/location/strand_sonnenuntergang.jpg')" data-reveal>
-        <img src="assets/img/location/strand_sonnenuntergang.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" alt="Dénia – Strandpromenade im Abendlicht" />
+      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/08_lebensgefuehl/03.jpg')" data-reveal>
+        <img src="assets/img/08_lebensgefuehl/03.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" data-i18n-alt="alt_lg_03" alt="Dénia – Strandpromenade im Abendlicht" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
         <span class="absolute bottom-3 left-4 text-white font-serif text-xl drop-shadow" data-i18n="loc_sunsets">Abendstimmung</span>
       </div>
     </div>
     <!-- Zeile 2: 2 Bilder -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-12">
-      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/location/palme_sonnenaufgang.jpg')" data-reveal>
-        <img src="assets/img/location/palme_sonnenaufgang.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" alt="Dénia – Palme bei Sonnenaufgang am Meer" />
+      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/08_lebensgefuehl/04.jpg')" data-reveal>
+        <img src="assets/img/08_lebensgefuehl/04.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" data-i18n-alt="alt_lg_04" alt="Dénia – Palme bei Sonnenaufgang am Meer" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
         <span class="absolute bottom-3 left-4 text-white font-serif text-xl drop-shadow">Las Rotas</span>
       </div>
-      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/location/hafen_panorama.jpg')" data-reveal>
-        <img src="assets/img/location/hafen_panorama.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" alt="Dénia – Hafen und Marina im Abenddämmer" />
+      <div class="gwrap relative overflow-hidden rounded-xl h-72 cursor-pointer" onclick="openLb('assets/img/08_lebensgefuehl/05.jpg')" data-reveal>
+        <img src="assets/img/08_lebensgefuehl/05.jpg" class="gimg w-full h-full object-cover" style="image-orientation:from-image" data-i18n-alt="alt_lg_05" alt="Dénia – Hafen und Marina im Abenddämmer" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
         <span class="absolute bottom-3 left-4 text-white font-serif text-xl drop-shadow" data-i18n="loc_harbour_panorama">Marina</span>
       </div>
@@ -436,7 +442,7 @@ tailwind.config={theme:{extend:{
       <!-- VIDEO links — Portrait 9:16, ungekürzt -->
       <div class="rounded-2xl overflow-hidden flex-shrink-0 w-full md:w-auto" style="aspect-ratio:9/16;max-width:320px">
         <video src="assets/video/villa_candela.mp4"
-          poster="assets/img/exterior/drone_1.jpg"
+          poster="assets/img/10_paradise/02.jpg"
           autoplay muted loop playsinline
           class="w-full h-full object-cover">
         </video>
@@ -444,7 +450,14 @@ tailwind.config={theme:{extend:{
 
       <!-- KARTE rechts — füllt verbleibende Breite, passt sich Video-Höhe an -->
       <div class="rounded-2xl overflow-hidden flex-1 w-full" style="min-height:400px;height:569px">
-        <div id="proximity-map" style="width:100%;height:100%;background:#EADFCB"></div>
+        <iframe
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCLHus2b12C9u0nOO43Ii8uiuj4Zc4PgE8&origin=38.827971,0.1222344&destination=38.8332325,0.1240966&mode=walking&maptype=satellite&zoom=16&center=38.8306,0.1232"
+          style="width:100%;height:100%;border:0;"
+          title="Fußweg Villa Candela – Parque Marineta Casiana"
+        ></iframe>
       </div>
 
     </div>
@@ -452,12 +465,11 @@ tailwind.config={theme:{extend:{
     <!-- Legende -->
     <div class="flex flex-wrap justify-center gap-6 mt-6 text-xs text-white/40" data-reveal>
       <span class="flex items-center gap-2">
-        <span style="display:inline-block;width:24px;height:0;border-top:2px dashed #C8912F"></span>
-        <span data-i18n="prox_legend_harbour">Route zum Yachthafen</span>
-      </span>
-      <span class="flex items-center gap-2">
         <span style="display:inline-block;width:10px;height:10px;background:#C8912F;border-radius:50%"></span>
         <span data-i18n="prox_legend_villa">Villa Candela</span>
+      </span>
+      <span class="flex items-center gap-2">
+        <span data-i18n="prox_legend_walk">Fußweg zum Strand · ca. 15 Min.</span>
       </span>
     </div>
   </div>
@@ -468,7 +480,7 @@ tailwind.config={theme:{extend:{
   <div class="max-w-5xl mx-auto px-5 md:px-8">
     <div class="flamediv mb-10"></div>
     <div class="grid lg:grid-cols-5 gap-12 items-center">
-      <div class="lg:col-span-2" data-reveal><img src="assets/img/exterior/pool_turm_portrait.jpg" class="rounded-2xl w-full h-[420px] object-cover object-center" alt="Villa Candela – Pool, Rundturm und Bougainvillea" /></div>
+      <div class="lg:col-span-2" data-reveal><img src="assets/img/09_zuhause/01.jpg" class="rounded-2xl w-full h-[420px] object-cover object-center" data-i18n-alt="alt_zuhause" alt="Villa Candela – Pool, Rundturm und Bougainvillea" /></div>
       <div class="lg:col-span-3" data-reveal>
         <p class="kicker text-amber text-[11px] uppercase mb-4" data-i18n="story_kicker">Seit 1996</p>
         <h2 class="font-serif text-4xl md:text-5xl mb-6" data-i18n="story_title">Ein Zuhause, mit Liebe gebaut</h2>
@@ -489,24 +501,24 @@ tailwind.config={theme:{extend:{
       <h2 class="font-serif text-4xl md:text-5xl text-cream mb-4" data-i18n="emo_title">Ein Haus, das man fühlt</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/interior/tower_terrace.jpg')" data-reveal>
-        <img src="assets/img/interior/tower_terrace.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" alt="" loading="lazy" />
+      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/10_paradise/01.jpg')" data-reveal>
+        <img src="assets/img/10_paradise/01.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" data-i18n-alt="alt_paradise_01" alt="" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6">
           <div class="text-amberlt text-xs uppercase tracking-widest mb-3 font-medium" data-i18n="emo1_title">Ruhe & Entspannung</div>
           <p class="text-white/85 text-sm font-light leading-relaxed" data-i18n="emo1_text">Starten Sie Ihren Morgen mit Blick auf den Montgó. Die Stille, die Luft, die Freiheit — hier findet man echte Erholung, fernab vom Alltag.</p>
         </div>
       </div>
-      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/exterior/drone_1.jpg')" data-reveal>
-        <img src="assets/img/exterior/drone_1.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" alt="" loading="lazy" />
+      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/10_paradise/02.jpg')" data-reveal>
+        <img src="assets/img/10_paradise/02.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" data-i18n-alt="alt_paradise_02" alt="" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6">
           <div class="text-amberlt text-xs uppercase tracking-widest mb-3 font-medium" data-i18n="emo2_title">Zusammenkommen & Familie</div>
           <p class="text-white/85 text-sm font-light leading-relaxed" data-i18n="emo2_text">Drei Apartments, unbegrenzte Möglichkeiten. Ihre Familie hat Platz zum Atmen, zum Spielen, zum Zusammensein. Oder laden Sie Freunde ein — der Platz ist da.</p>
         </div>
       </div>
-      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/exterior/garden.jpg')" data-reveal>
-        <img src="assets/img/exterior/garden.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" alt="" loading="lazy" />
+      <div class="relative overflow-hidden rounded-2xl group cursor-pointer" onclick="openLb('assets/img/10_paradise/03.jpg')" data-reveal>
+        <img src="assets/img/10_paradise/03.jpg" class="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700" data-i18n-alt="alt_paradise_03" alt="" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-6">
           <div class="text-amberlt text-xs uppercase tracking-widest mb-3 font-medium" data-i18n="emo3_title">Privatsphäre & Exklusivität</div>
@@ -637,49 +649,67 @@ function buildUsp(L){
     </div>`).join('');
 }
 
-function figIt(src,cap){return `<figure><div class="gwrap relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer" onclick="openLb('assets/img/${src}')"><img src="assets/img/${src}" class="gimg w-full h-full object-cover" loading="lazy" alt="${cap}"></div><figcaption class="text-xs text-inksoft mt-1.5 px-0.5">${cap}</figcaption></figure>`;}
-function gridOf(arr){return `<div class="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-5 md:gap-x-4">${arr.map(x=>figIt(x[0],x[1])).join('')}</div>`;}
+let _lang='de';
+function figIt(src,k,portrait){const c=(I18N[_lang]&&I18N[_lang][k])||I18N.de[k]||k;const asp=portrait?'aspect-[3/4]':'aspect-[4/3]';return `<figure><div class="gwrap relative overflow-hidden rounded-lg ${asp} cursor-pointer" onclick="openLb('assets/img/${src}')"><img src="assets/img/${src}" class="gimg w-full h-full object-cover" loading="lazy" alt="${c}"></div><figcaption class="text-xs text-inksoft mt-1.5 px-0.5">${c}</figcaption></figure>`;}
+function gridOf(arr){return `<div class="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-5 md:gap-x-4">${arr.map(x=>figIt(x[0],x[1],x[2])).join('')}</div>`;}
 const EXT=[
-  ["exterior/pool_turm_portrait.jpg","Rundturm und Pool – Südansicht mit Rosenblüte"],
-  ["exterior/garten_sued_bougainvillea.jpg","Bougainvillea und Fassade – Innenhof Süd"],
-  ["exterior/pool_turm_montgo.jpg","Pool mit Turm und Montgó-Blick"],
-  ["exterior/pool_turm_palme.jpg","Pool, Turm und Palme – Montgó im Hintergrund"],
-  ["exterior/springbrunnen_garten.jpg","Brunnenanlage und Gartenüberblick"],
-  ["exterior/garten_nord.jpg","Nordgarten mit Orangenbäumen"],
-  ["exterior/aussenansicht.jpg","Fassade und Eingangsbereich – Westseite"],
-  ["exterior/detail_eingang.jpg","Eingangsdetail – Terrassentreppe mit Hibiskus"],
-  ["exterior/detail_blume.jpg","Hibiskus und Bougainvillea im Garten"]
+  ["03_galerie_aussen/01.jpg","cap_ext_01"],
+  ["03_galerie_aussen/02.jpg","cap_ext_02"],
+  ["03_galerie_aussen/03.jpg","cap_ext_03"],
+  ["03_galerie_aussen/04.jpg","cap_ext_04"],
+  ["03_galerie_aussen/05.jpg","cap_ext_05"],
+  ["03_galerie_aussen/06.jpg","cap_ext_06"],
+  ["03_galerie_aussen/07.jpg","cap_ext_07"],
+  ["03_galerie_aussen/08.jpg","cap_ext_08"],
+  ["03_galerie_aussen/09.jpg","cap_ext_09"],
+  ["03_galerie_aussen/10.jpg","cap_ext_10"],
+  ["03_galerie_aussen/11.jpg","cap_ext_11"],
+  ["03_galerie_aussen/12.jpg","cap_ext_12"]
 ];
 const INT_MAIN=[
-  ["interior/wohnzimmer.jpg","Wohnzimmer – Holzbalkendecke und Gartenblick"],
-  ["interior/esszimmer_kamin.jpg","Esszimmer mit Kamin und Holzbalken"],
-  ["interior/kueche.jpg","Küche mit Kaminblick"],
-  ["interior/terrasse_ost.jpg","Ostterrasse – Sitzbereich mit Gartenblick"],
-  ["interior/masterbad.jpg","Masterbad – Doppelwaschbecken"],
-  ["interior/schlafzimmer.jpg","Schlafzimmer Hauptwohnung"],
-  ["interior/turmzimmer.jpg","Turmzimmer"],
-  ["interior/terrasse_turm.jpg","Dachterrasse Turmzimmer"],
-  ["interior/detail_wohnzimmer.jpg","Wohnzimmer – Detail"]
+  ["04_galerie_haupt/01.jpg","cap_main_01"],
+  ["04_galerie_haupt/02.jpg","cap_main_02"],
+  ["04_galerie_haupt/03.jpg","cap_main_03"],
+  ["04_galerie_haupt/04.jpg","cap_main_04"],
+  ["04_galerie_haupt/05.jpg","cap_main_05"],
+  ["04_galerie_haupt/06.jpg","cap_main_06"],
+  ["04_galerie_haupt/07.jpg","cap_main_07"],
+  ["04_galerie_haupt/08.jpg","cap_main_08"],
+  ["04_galerie_haupt/09.jpg","cap_main_09"],
+  ["04_galerie_haupt/10.jpg","cap_main_10"],
+  ["04_galerie_haupt/11.jpg","cap_main_11"],
+  ["04_galerie_haupt/12.jpg","cap_main_12"],
+  ["04_galerie_haupt/13.jpg","cap_main_13"],
+  ["04_galerie_haupt/14.jpg","cap_main_14"],
+  ["04_galerie_haupt/15.jpg","cap_main_15"],
+  ["04_galerie_haupt/16.jpg","cap_main_16"],
+  ["04_galerie_haupt/17.jpg","cap_main_17"],
+  ["04_galerie_haupt/18.jpg","cap_main_18"]
 ];
 const INT_APT1=[
-  ["interior/apt1_living.jpg","Apartment I – Wohn- und Schlafbereich mit Küche"],
-  ["interior/apt1_room2.jpg","Apartment I – Wohnzimmer mit Terrassenblick"],
-  ["interior/apt1_terrace.jpg","Apartment I – Private Terrasse mit Bougainvillea"]
+  ["05_galerie_apt1/01.jpg","cap_apt1_01"],
+  ["05_galerie_apt1/02.jpg","cap_apt1_02"],
+  ["05_galerie_apt1/03.jpg","cap_apt1_03"],
+  ["05_galerie_apt1/04.jpg","cap_apt1_04",true],
+  ["05_galerie_apt1/05.jpg","cap_apt1_05",true],
+  ["05_galerie_apt1/06.jpg","cap_apt1_06",true]
 ];
 const INT_APT2=[
-  ["interior/apt2_living.jpg","Apartment II – Wohn- und Küchenbereich"],
-  ["interior/apt2_bedroom.jpg","Apartment II – Schlafzimmer mit zwei Einzelbetten"],
-  ["interior/apt2_hallway.jpg","Apartment II – Eingangsbereich mit Rundbogen"]
+  ["06_galerie_apt2/01.jpg","cap_apt2_01"],
+  ["06_galerie_apt2/02.jpg","cap_apt2_02"],
+  ["06_galerie_apt2/03.jpg","cap_apt2_03"],
+  ["06_galerie_apt2/04.jpg","cap_apt2_04",true],
+  ["06_galerie_apt2/05.jpg","cap_apt2_05",true],
+  ["06_galerie_apt2/06.jpg","cap_apt2_06",true]
 ];
-const IG={de:{main:"Hauptwohnung & Turm",apt1:"Apartment I",apt2:"Apartment II",soon:"Bilder folgen"},
- en:{main:"Main residence & tower",apt1:"Apartment I",apt2:"Apartment II",soon:"Photos to follow"},
- es:{main:"Vivienda principal y torre",apt1:"Apartamento I",apt2:"Apartamento II",soon:"Fotos próximamente"},
- nl:{main:"Hoofdwoning & toren",apt1:"Appartement I",apt2:"Appartement II",soon:"Foto's volgen"},
- fr:{main:"Résidence principale & tour",apt1:"Appartement I",apt2:"Appartement II",soon:"Photos à venir"},
- ru:{main:"Резиденция и башня",apt1:"Квартира I",apt2:"Квартира II",soon:"Фото будут добавлены"}};
+const IG={de:{main:"Master House",apt1:"Apartment I",apt2:"Apartment II",soon:"Bilder folgen"},
+ en:{main:"Master House",apt1:"Apartment I",apt2:"Apartment II",soon:"Photos to follow"},
+ es:{main:"Master House",apt1:"Apartamento I",apt2:"Apartamento II",soon:"Fotos próximamente"},
+ nl:{main:"Master House",apt1:"Appartement I",apt2:"Appartement II",soon:"Foto's volgen"},
+ fr:{main:"Master House",apt1:"Appartement I",apt2:"Appartement II",soon:"Photos à venir"},
+ ru:{main:"Master House",apt1:"Квартира I",apt2:"Квартира II",soon:"Фото будут добавлены"}};
 function seg(title,arr,soon){return `<div><h3 class="font-serif text-2xl mb-4 text-center">${title}</h3>${arr.length?gridOf(arr):`<p class="text-center text-sm text-inksoft/60 italic">${soon}</p>`}</div>`;}
 function buildInt(lang){const g=IG[lang]||IG.de;document.getElementById('grid-int').innerHTML=seg(g.main,INT_MAIN,g.soon)+seg(g.apt1,INT_APT1,g.soon)+seg(g.apt2,INT_APT2,g.soon);}
-document.getElementById('grid-ext').innerHTML=EXT.map(x=>figIt(x[0],x[1])).join('');
 document.getElementById('tab-ext').onclick=()=>toggleTab(true);
 document.getElementById('tab-int').onclick=()=>toggleTab(false);
 function toggleTab(ext){
@@ -692,31 +722,43 @@ function openLb(src){let lb=document.getElementById('lb');if(!lb){lb=document.cr
 
 const I18N={
  de:{nav_highlights:"Highlights",nav_gallery:"Galerie",nav_units:"Einheiten",nav_data:"Objektdaten",nav_location:"Lage",nav_story:"Geschichte",nav_experience:"Besichtigung",nav_cta:"Anfragen",
-  hero_tagline:"Ein Haus für gemeinsame Zeit – und eigene Räume.",hero_kicker:"Dénia · Costa Blanca · am Fuße des Montgó",hero_sub:"Hauptwohnung mit Turm-Suite und zwei autarke Erdgeschoss-Apartments auf 955 m² Privatgarten — 30 Jahre in Familienbesitz, liebevoll gepflegt und modernisiert, wenige Minuten zu Hafen, Strand und Altstadt von Dénia.",hero_cta1:"Besichtigung anfragen",hero_cta2:"Erlebnistag entdecken",
+  hero_tagline:"Ein Haus für gemeinsame Zeit – und eigene Räume.",hero_kicker:"Dénia · Costa Blanca · am Fuße des Montgó",hero_sub:"Master House mit Turm-Suite und zwei autarke Erdgeschoss-Apartments auf 955 m² Privatgarten — 30 Jahre in Familienbesitz, liebevoll gepflegt und modernisiert, wenige Minuten zu Hafen, Strand und Altstadt von Dénia.",hero_cta1:"Besichtigung anfragen",hero_cta2:"Erlebnistag entdecken",
   band_1:"1 Min. zum Yachthafen",band_2:"wenige Minuten zum Strand Las Rotas",band_3:"5–10 Min. zu Fuß in die Altstadt",band_4:"am Fuße des Montgó",band_car:"Mit dem Auto: 5 Min. zum Yachthafen · 2 Min. zum Strand Las Rotas · 7 Min. in die Altstadt",band_walk:"Zu Fuß: 20 Min. zum Yachthafen · 10 Min. zum Strand · 30 Min. in die Altstadt",
   fact_units:"Wohneinheiten",fact_living:"m² Wohnfläche",fact_plot:"m² Grundstück",fact_beds:"Schlafzimmer",fact_baths:"Bäder",fact_pool:"Pool & Garten",
   usp_kicker:"Das Besondere",usp_title:"Ein Haus, viele Möglichkeiten",usp_sub:"Selten verbindet ein Anwesen so viel Privatsphäre, Flexibilität und Lagequalität — gebaut und gepflegt von einer Architekten- und Ingenieurfamilie.",
-  u1_t:"Drei flexible Einheiten",u1_b:"Die Hauptwohnung mit Turm-Suite sowie zwei autarke Apartments im Erdgeschoss — zusammen oder getrennt nutzbar. Ideal für Mehrgenerationen, Gäste oder Teilvermietung.",
+  u1_t:"Drei flexible Einheiten",u1_b:"Das Master House mit Turm-Suite sowie zwei autarke Apartments im Erdgeschoss — zusammen oder getrennt nutzbar. Ideal für Mehrgenerationen, Gäste oder Teilvermietung.",
   u2_t:"Zwischen Montgó und Las Rotas",u2_b:"Am Fuß des Montgó, eingebettet in die ruhige Straße San Nicolás — und dennoch nur Minuten von Strand, Buchten und Hafen entfernt. Naturlage und Stadtleben in einer Adresse.",
   u3_t:"Pool & mediterraner Garten",u3_b:"955 m² ebener, voll angelegter Garten mit großem Pool, zwei gemauerten Grillpavillons, einem Springbrunnen und zwei schattigen Außenterrassen — Privatsphäre hinter hohen Hecken.",
   u4_t:"Substanz & Qualität",u4_b:"Seit 1996 von einer Ingenieur- und Architektenfamilie selbst bewohnt und kontinuierlich weiterentwickelt. 1998 strukturell erweitert, 2008 mit neuen Fenstern und Außentüren modernisiert. Solaranlage für Warmwasser, eigener Brunnen mit automatischer Gartenberegnung — Qualität, die man sieht und spürt.",
   u5_t:"Hafen & maritimes Leben",u5_b:"Der lebendige Yachthafen von Dénia mit Restaurants, Booten und Fährverbindungen ist in wenigen Minuten erreichbar — maritimes Lebensgefühl direkt vor der Tür.",
   u6_t:"Licht & Wärme",u6_b:"Candela — Spanisch für Kerze, Licht, Wärme. Auf der Dachterrasse der Turm-Suite über den Gärten von San Nicolás spürt man genau das: Licht von allen Seiten, Sonne auf dem Pool bis in den Abend, mediterrane Wärme das ganze Jahr. Der Name ist Programm.",
   gal_kicker:"Galerie",gal_title:"Eindrücke der Villa Candela",gal_tab_ext:"Außen & Garten",gal_tab_int:"Innenräume",gal_note:"Die Innenaufnahmen sind vorläufige Platzhalter und werden durch eigene Fotos ersetzt.",
-  apt_kicker:"Flexibel wohnen",apt_title:"Drei Welten unter einem Dach",apt_b1:"Die Hauptwohnung mit Wohn-, Ess- und Kaminzimmer öffnet sich zur Terrasse mit Montgó-Blick. Darüber thront die Turm-Suite mit eigenem Bad und Dachterrasse.",apt_b2:"Im Erdgeschoss liegen zwei eigenständige Apartments mit separatem Zugang — innen über eine abschließbare Tür verbunden. So lassen sie sich zusammenlegen, einzeln nutzen, an Gäste vergeben oder vermieten.",apt_b3:"Diese Aufteilung macht Villa Candela ebenso passend für Mehrgenerationenfamilien wie für Eigentümer mit Renditeabsicht.",apt_uses:"Ob Großfamilie mit drei Generationen, Freundesgruppe im gemeinsamen Urlaub oder Eigennutzer mit Vermietungsabsicht — diese Villa passt sich Ihnen an, nicht umgekehrt.",
+  apt_kicker:"Flexibel wohnen",apt_title:"Drei Welten unter einem Dach",apt_b1:"Das Master House mit Wohn-, Ess- und Kaminzimmer öffnet sich zur Terrasse mit Montgó-Blick. Darüber thront die Turm-Suite mit eigenem Bad und Dachterrasse.",apt_b2:"Im Erdgeschoss liegen zwei eigenständige Apartments mit separatem Zugang — innen über eine abschließbare Tür verbunden. So lassen sie sich zusammenlegen, einzeln nutzen, an Gäste vergeben oder vermieten.",apt_b3:"Diese Aufteilung macht Villa Candela ebenso passend für Mehrgenerationenfamilien wie für Eigentümer mit Renditeabsicht.",apt_uses:"Ob Großfamilie mit drei Generationen, Freundesgruppe im gemeinsamen Urlaub oder Eigennutzer mit Vermietungsabsicht — diese Villa passt sich Ihnen an, nicht umgekehrt.",
   data_kicker:"Objektdaten & Bauhistorie",data_title:"Gebaut, erweitert, gepflegt",data_sub:"Ein Haus mit Geschichte und Substanz — von einer Ingenieur- und Architektenfamilie über Jahrzehnte mit Sorgfalt geführt.",
   h_today:"heute",h_1996_t:"In Familienbesitz",h_1996_b:"Erwerb durch die Familie, seither durchgehend selbst genutzt.",h_1998_t:"Bauliche Erweiterung",h_1998_b:"Anbau des Turms, Erweiterung der Wohnfläche und vollständige Neugestaltung der Raumaufteilung — geplant und umgesetzt mit eigener Architekten- und Ingenieurleistung.",h_2008_t:"Modernisierung",h_2008_b:"Neue Isolierglasfenster, Außentüren und Terrassen.",h_care_t:"Laufend instand gehalten",h_care_b:"Kontinuierliche Pflege und Werterhaltung — daher trotz des Alters in sehr gutem Zustand.",
-  dl_living:"Wohnfläche",dl_usable:"Wohn-/Nutzfläche gesamt",dv_usable:"360 m² (inkl. Terrassen)",dl_apt_main:"— Hauptapartment",dv_apt_main:"Turmzimmer · 3 Terrassen · 220 m²",dl_apt1:"— Apartment I",dv_apt1:"Terrasse · 80 m²",dl_apt2:"— Apartment II",dv_apt2:"Terrasse · 60 m²",dl_plot:"Grundstück",dl_units:"Wohneinheiten",dv_units:"Hauptwohnung (inkl. Turm-Suite) · Apartment I · Apartment II",dl_rooms:"Schlafzimmer / Bäder",dl_orient:"Ausrichtung",dv_orient:"Süd",dl_features:"Ausstattung",dv_features:"Pool, Solar-Warmwasser, Klimaanlage, Kamin, Garage, Dachterrasse, Automatische Gartenbewässerung",dl_note:"Flächen gemäß Architektenplänen; Detailunterlagen auf Anfrage.",
-  plan_kicker:"Grundrisse & Ansichten",plan_title:"Klar geplant, großzügig gedacht",plan_sub:"Pläne aus dem Architekturbüro Moussavi (Eigentümer) — zum Vergrößern anklicken.",plan_ref:"Architekturbüro Moussavi — Referenz unserer Arbeit",plan_eg:"Erdgeschoss · 2 Apartments",plan_og:"Obergeschoss · Hauptwohnung",plan_dg:"Turm · Suite & Dachterrasse",
+  dl_living:"Wohnfläche",dl_usable:"Wohn-/Nutzfläche gesamt",dv_usable:"360 m² (inkl. Terrassen)",dl_apt_main:"— Master House",dv_apt_main:"Turmzimmer · 3 Terrassen · 220 m²",dl_apt1:"— Apartment I",dv_apt1:"Terrasse · 80 m²",dl_apt2:"— Apartment II",dv_apt2:"Terrasse · 60 m²",dl_plot:"Grundstück",dl_units:"Wohneinheiten",dv_units:"Master House (inkl. Turm-Suite) · Apartment I · Apartment II",dl_rooms:"Schlafzimmer / Bäder",dl_orient:"Ausrichtung",dv_orient:"Süd",dl_features:"Ausstattung",dv_features:"Pool, Solar-Warmwasser, Klimaanlage, Kamin, Garage, Dachterrasse, Automatische Gartenbewässerung",dl_note:"Flächen gemäß Architektenplänen; Detailunterlagen auf Anfrage.",
+  plan_kicker:"Grundrisse & Ansichten",plan_title:"Klar geplant, großzügig gedacht",plan_sub:"Pläne aus dem Architekturbüro Moussavi (Eigentümer) — zum Vergrößern anklicken.",plan_ref:"Architekturbüro Moussavi — Referenz unserer Arbeit",plan_eg:"Erdgeschoss · 2 Apartments",plan_og:"Obergeschoss · Master House",plan_dg:"Turm · Suite & Dachterrasse",
   loc_kicker:"Leben in Dénia",loc_title:"Nicht nur ein Haus — ein Lebensgefühl",loc_sub:"Zwischen Montgó und Mittelmeer — mit einem lebendigen Yachthafen, der historischen Altstadt mit Restaurants und Cafés und den Buchten von Las Rotas vor der Tür. Dénia bewahrt seinen Charme ohne Massentourismus und Hochhäuser.",loc_harbour:"Yachthafen",loc_oldtown:"Altstadt & Burg",loc_sunsets:"Abendstimmung",loc_harbour_panorama:"Marina",price_kicker:"Investition",price_note:"Kaufpreis · inkl. Inventar nach Absprache",price_sub:"Vollständige Unterlagen, Grundbuchauszug und Besichtigungstermine auf persönliche Anfrage.",price_cta:"Besichtigung & Unterlagen anfragen",
   d1_v:"5 Min.",d1_l:"mit dem Auto zum Yachthafen",d2_v:"2 Min.",d2_l:"zum Strand Las Rotas (Auto)",d3_v:"7 Min.",d3_l:"mit dem Auto in die Altstadt",d4_v:"~1 Std.",d4_l:"zu zwei Flughäfen",
   story_kicker:"Seit 1996",story_title:"Ein Zuhause, mit Liebe gebaut",story_b1:"Drei Jahrzehnte lang war Villa Candela das Refugium einer Familie, in der Architektur Beruf und Berufung ist — der Vater Architekt, der Sohn Bauingenieur. Was hier entstand, wurde nicht gekauft, sondern gestaltet, schrittweise erweitert und mit dem Anspruch von Fachleuten gepflegt.",story_b2:"30 Jahre Familienbesitz haben hier keine Abnutzung hinterlassen, sondern Substanz, die man spürt. Das Haus, das 1998 baulich erweitert und vollständig modernisiert wurde, steht heute in einem Zustand, den man selten findet — gepflegt von Menschen, die wissen, wie ein Haus gebaut sein muss. Nun beginnt für Villa Candela ein neues Kapitel. Vielleicht Ihres.",story_link:"Mehr über das Bau- und Planungsunternehmen der Familie Moussavi in München",
   exp_kicker:"Private Besichtigung",exp_title:"Besichtigung anfragen",exp_b1:"Für ernsthafte Interessenten organisieren wir nach persönlichem Erstkontakt individuelle Besichtigungen und ausgewählte private Termine. Das Haus entfaltet seinen eigentlichen Charakter erst, wenn man es erlebt — mit allen Sinnen, zur richtigen Tageszeit, in aller Ruhe.",exp_b2:"Bitte hinterlassen Sie Ihre Kontaktdaten — wir melden uns persönlich und besprechen die nächsten Schritte.",
   f_name:"Name",f_email:"E-Mail",f_phone:"Telefon",f_country:"Land",f_msg:"Ihre Nachricht",f_qualify:"Ich habe ernsthaftes Kaufinteresse an Villa Candela.",f_submit:"Besichtigung anfragen",f_ok:"Vielen Dank — wir melden uns persönlich bei Ihnen.",
-  prox_kicker:"Lage & Erreichbarkeit",prox_title:"Fünf Minuten bis ans Meer",prox_video_note:"Drohnenvideo: Flug vom Haus zum Meer — folgt",prox_min_harbour:"Min. Hafen",prox_min_beach:"Min. Strand",prox_min_town:"Min. Altstadt",prox_by_car:"jeweils mit dem Auto",prox_legend_harbour:"Route zum Yachthafen",prox_legend_beach:"Route zu Las Rotas",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Lage & Erreichbarkeit",prox_title:"Fünf Minuten bis ans Meer",prox_video_note:"Drohnenvideo: Flug vom Haus zum Meer — folgt",prox_min_harbour:"Min. Hafen",prox_min_beach:"Min. Strand",prox_min_town:"Min. Altstadt",prox_by_car:"jeweils mit dem Auto",prox_legend_harbour:"Route zum Yachthafen",prox_legend_beach:"Route zu Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Fußweg zum Strand · ca. 15 Min.",
   emo_kicker:"Das Besondere erleben",emo_title:"Ein Haus, das man fühlt",emo1_title:"Ruhe & Entspannung",emo1_text:"Starten Sie Ihren Morgen mit Blick auf den Montgó. Die Stille, die Luft, die Freiheit — hier findet man echte Erholung, fernab vom Alltag.",emo2_title:"Zusammenkommen & Familie",emo2_text:"Drei Apartments, unbegrenzte Möglichkeiten. Ihre Familie hat Platz zum Atmen, zum Spielen, zum Zusammensein. Oder laden Sie Freunde ein — der Platz ist da.",emo3_title:"Privatsphäre & Exklusivität",emo3_text:"955 m² vollständige Privatsphäre. Niemand schaut herein, Sie schauen hinaus auf Ihren eigenen grünen Garten. Ihre persönliche Rückzugsoase an der Costa Blanca.",
   con_kicker:"Kontakt",con_title:"Sprechen wir über Villa Candela",con_sub:"Direkt mit den Eigentümern — persönlich und auf Augenhöhe. Wir freuen uns auf Ihre Nachricht.",con_wa:"WhatsApp schreiben",con_noagent:"Direkter Kontakt mit den Eigentümern · Persönliche Begleitung bis zur Besichtigung",con_instagram:"Instagram folgen",
-  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanien",foot_imprint:"Impressum",foot_privacy:"Datenschutz",foot_rights:"Privatverkauf durch die Eigentümer"},
+  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanien",foot_imprint:"Impressum",foot_privacy:"Datenschutz",foot_rights:"Privatverkauf durch die Eigentümer",
+  cap_ext_01:"Pool und Turm",cap_ext_02:"Südgarten",cap_ext_03:"Terrasse Apartment 2",cap_ext_04:"Pool",cap_ext_05:"Relaxen in der Sonne",cap_ext_06:"Nordgarten",cap_ext_07:"Einfahrt und Garagentor",cap_ext_08:"Einfahrt – Blick nach Westen",cap_ext_09:"Springbrunnen mit Sitzecke",
+  cap_ext_10:"Springbrunnen mit Grillplatz",cap_ext_11:"Detail Springbrunnen",cap_ext_12:"Detail Gebäude",
+  cap_main_01:"Eingangsbereich",cap_main_02:"Küche mit Blick auf Kamin",cap_main_03:"Küche",cap_main_04:"Blick in Richtung Wohnzimmer",cap_main_05:"Esszimmer",cap_main_06:"Blick aus Esszimmer in Richtung Kamin",cap_main_07:"Wohnzimmer",cap_main_08:"Wohnzimmer Terrasse Ost",cap_main_09:"Blick von der Terrasse auf Springbrunnen",
+  cap_main_10:"Blick aus dem Wohnzimmer zum Esszimmer",cap_main_11:"Kinderzimmer",cap_main_12:"Arbeitszimmer",cap_main_13:"Schlafzimmer",cap_main_14:"Westterrasse",cap_main_15:"Turmzimmer",cap_main_16:"Terrasse Turmzimmer",cap_main_17:"Bad Turmzimmer",cap_main_18:"Blick von Terrasse Turmzimmer auf den Montgó",
+  cap_apt1_01:"Apartment I – Eingangs- und Wohnbereich",cap_apt1_02:"Apartment I – Schlafbereich",cap_apt1_03:"Apartment I – Blick von der Couch auf Schlafbereich und Küche",
+  cap_apt1_04:"Apartment I – Bad",cap_apt1_05:"Apartment I – Detail Schlafzimmer",cap_apt1_06:"Apartment I – Detail Bad",
+  cap_apt2_01:"Apartment II – Blick von Eingang in Richtung Verbindungsflur und Küche",cap_apt2_02:"Apartment II – Schlafbereich",cap_apt2_03:"Apartment II – Terrasse und Grillplatz",
+  cap_apt2_04:"Apartment II – Bad",cap_apt2_05:"Apartment II – Detail Eingang",cap_apt2_06:"Apartment II – Detail Bad",
+  alt_dw_01:"Luftaufnahme – Pool und Garten von oben",alt_dw_02:"Turmzimmer – Rundes Mauerwerk und Holzbalken",alt_dw_03:"Terrasse Ost – Sitzbereich mit Montgó-Blick",alt_dw_04:"Dachterrasse Turmzimmer – Panoramablick über Dénia",
+  alt_lg_01:"Yachthafen Dénia – Segelboote im Abendlicht",alt_lg_02:"Montgó – Panorama über Dénia",alt_lg_03:"Strand Las Rotas – Abendlicht",alt_lg_04:"Dénia – Palme bei Sonnenaufgang",alt_lg_05:"Dénia – Hafen und Marina",
+  alt_zuhause:"Villa Candela – Pool, Rundturm und Bougainvillea",
+  alt_paradise_01:"Dachterrasse Turmzimmer – private Aussicht",alt_paradise_02:"Villa Candela – Luftaufnahme",alt_paradise_03:"Privatgarten – grüne Oase"},
 
  en:{nav_highlights:"Highlights",nav_gallery:"Gallery",nav_units:"Units",nav_data:"Property data",nav_location:"Location",nav_story:"Story",nav_experience:"Viewing",nav_cta:"Enquire",
   hero_tagline:"A house for shared time – and private spaces.",hero_kicker:"Dénia · Costa Blanca · at the foot of the Montgó",hero_sub:"Main residence with tower suite and two self-contained ground-floor apartments set in a 955 m² private garden — 30 years in family ownership, lovingly maintained and modernised, minutes from harbour, beach and old town of Dénia.",hero_cta1:"Request a viewing",hero_cta2:"Discover the Experience",
@@ -740,10 +782,18 @@ const I18N={
   story_kicker:"Since 1996",story_title:"A home, built with love",story_b1:"For three decades Villa Candela was the retreat of a family for whom architecture is both profession and calling — a father who is an architect, a son who is a structural engineer. What stands here was not bought, but shaped, extended step by step and cared for with professional standards.",story_b2:"30 years of family ownership have left not wear, but substance you can feel. The house, structurally extended and fully modernised in 1998, stands today in a condition rarely found — cared for by people who know what it takes to build a house properly. Now a new chapter begins for Villa Candela. Perhaps yours.",story_link:"More about the Moussavi family’s construction business in Munich",
   exp_kicker:"Private viewing",exp_title:"Request a Viewing",exp_b1:"For serious buyers, we arrange individual viewings and selected private appointments after an initial personal contact. The house reveals its true character only when experienced — with all the senses, at the right time of day, in complete calm.",exp_b2:"Please leave your contact details — we will get back to you personally and discuss the next steps.",
   f_name:"Name",f_email:"Email",f_phone:"Phone",f_country:"Country",f_msg:"Your message",f_qualify:"I have serious purchase interest in Villa Candela.",f_submit:"Request a viewing",f_ok:"Thank you — we will contact you personally.",
-  prox_kicker:"Location & Access",prox_title:"Five Minutes to the Sea",prox_video_note:"Drone video: flight from the house to the sea — coming soon",prox_min_harbour:"min harbour",prox_min_beach:"min beach",prox_min_town:"min old town",prox_by_car:"each by car",prox_legend_harbour:"Route to the marina",prox_legend_beach:"Route to Las Rotas",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Location & Access",prox_title:"Five Minutes to the Sea",prox_video_note:"Drone video: flight from the house to the sea — coming soon",prox_min_harbour:"min harbour",prox_min_beach:"min beach",prox_min_town:"min old town",prox_by_car:"each by car",prox_legend_harbour:"Route to the marina",prox_legend_beach:"Route to Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Walking to the beach · approx. 15 min.",
   emo_kicker:"Feel the difference",emo_title:"A house you feel",emo1_title:"Peace & relaxation",emo1_text:"Start your morning with a view of the Montgó. The silence, the air, the freedom — this is where real rest is found, far from everyday life.",emo2_title:"Togetherness & family",emo2_text:"Three apartments, endless possibilities. Your family has room to breathe, to play, to be together. Or invite friends — the space is there.",emo3_title:"Privacy & exclusivity",emo3_text:"955 m² of complete privacy. No one looks in; you look out onto your own green garden. Your personal retreat on the Costa Blanca.",
   con_kicker:"Contact",con_title:"Let's talk about Villa Candela",con_sub:"Directly with the owners — personal and on equal terms. We look forward to hearing from you.",con_wa:"Message on WhatsApp",con_noagent:"Direct contact with the owners · Personal guidance from enquiry to viewing",con_instagram:"Follow on Instagram",
-  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spain",foot_imprint:"Imprint",foot_privacy:"Privacy",foot_rights:"Private sale by the owners"},
+  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spain",foot_imprint:"Imprint",foot_privacy:"Privacy",foot_rights:"Private sale by the owners",
+  cap_ext_01:"Pool and round tower – south view",cap_ext_02:"Bougainvillea and facade – inner courtyard",cap_ext_03:"Pool with tower and Montgó view",cap_ext_04:"Pool, tower and palm – Montgó in the background",cap_ext_05:"Fountain and garden overview",cap_ext_06:"North garden with orange trees",cap_ext_07:"Facade and entrance",cap_ext_08:"Entrance detail – terrace steps",cap_ext_09:"Hibiscus and bougainvillea in the garden",
+  cap_main_01:"Living room – timber-beamed ceiling and garden view",cap_main_02:"Dining room with fireplace and timber beams",cap_main_03:"Kitchen with fireplace view",cap_main_04:"East terrace – seating area with garden view",cap_main_05:"Master bathroom – double washbasin",cap_main_06:"Bedroom main residence",cap_main_07:"Tower room",cap_main_08:"Roof terrace of the tower room",cap_main_09:"Living room – detail",
+  cap_apt1_01:"Apartment I – open-plan living, sleeping and kitchen",cap_apt1_02:"Apartment I – living room with terrace view",cap_apt1_03:"Apartment I – private terrace with bougainvillea",
+  cap_apt2_01:"Apartment II – living and kitchen area",cap_apt2_02:"Apartment II – bedroom with two single beds",cap_apt2_03:"Apartment II – entrance with arched doorway",
+  alt_dw_01:"Aerial view – pool and garden from above",alt_dw_02:"Tower room – rounded masonry and timber beams",alt_dw_03:"East terrace – seating area with Montgó view",alt_dw_04:"Roof terrace tower room – panorama over Dénia",
+  alt_lg_01:"Dénia marina – sailing boats in the evening light",alt_lg_02:"Montgó – panorama over Dénia",alt_lg_03:"Las Rotas beach – evening light",alt_lg_04:"Dénia – palm at sunrise",alt_lg_05:"Dénia – harbour and marina",
+  alt_zuhause:"Villa Candela – pool, round tower and bougainvillea",
+  alt_paradise_01:"Roof terrace tower room – private view",alt_paradise_02:"Villa Candela – aerial view",alt_paradise_03:"Private garden – green oasis"},
 
  es:{nav_highlights:"Destacados",nav_gallery:"Galería",nav_units:"Unidades",nav_data:"Datos",nav_location:"Ubicación",nav_story:"Historia",nav_experience:"Visita",nav_cta:"Contactar",
   hero_tagline:"Una casa para el tiempo en común – y espacios propios.",hero_kicker:"Dénia · Costa Blanca · a los pies del Montgó",hero_sub:"Vivienda principal con suite en la torre y dos apartamentos independientes en planta baja sobre 955 m² de jardín privado — 30 años en propiedad familiar, cuidada y modernizada con esmero, a minutos del puerto, la playa y el casco antiguo de Dénia.",hero_cta1:"Solicitar una visita",hero_cta2:"Descubrir la experiencia",
@@ -767,10 +817,18 @@ const I18N={
   story_kicker:"Desde 1996",story_title:"Un hogar construido con amor",story_b1:"Durante tres décadas, Villa Candela fue el refugio de una familia en la que la arquitectura es profesión y vocación — un padre arquitecto, un hijo ingeniero de la construcción. Lo que aquí se levanta no se compró, sino que se diseñó, amplió progresivamente y cuidó con el rigor de los expertos.",story_b2:"30 años de propiedad familiar no han dejado desgaste, sino solidez que se palpa. La casa, ampliada y completamente modernizada en 1998, se encuentra hoy en un estado difícil de encontrar — cuidada por personas que saben cómo debe construirse una casa. Ahora comienza un nuevo capítulo para Villa Candela. Quizás el suyo.",story_link:"Más sobre la empresa constructora de la familia Moussavi en Múnich",
   exp_kicker:"Visita privada",exp_title:"Solicitar una visita",exp_b1:"Para compradores serios, organizamos visitas individuales y citas privadas seleccionadas después de un primer contacto personal. La casa revela su verdadero carácter solo cuando se vive — con todos los sentidos, a la hora adecuada, con total tranquilidad.",exp_b2:"Déjenos sus datos de contacto — le contactaremos personalmente para hablar sobre los próximos pasos.",
   f_name:"Nombre",f_email:"Correo",f_phone:"Teléfono",f_country:"País",f_msg:"Su mensaje",f_qualify:"Tengo un interés de compra serio en Villa Candela.",f_submit:"Solicitar visita",f_ok:"Gracias — le contactaremos personalmente.",
-  prox_kicker:"Ubicación y acceso",prox_title:"Cinco minutos hasta el mar",prox_video_note:"Vídeo de dron: vuelo desde la casa hasta el mar — próximamente",prox_min_harbour:"min puerto",prox_min_beach:"min playa",prox_min_town:"min casco",prox_by_car:"en coche",prox_legend_harbour:"Ruta al puerto deportivo",prox_legend_beach:"Ruta a Las Rotas",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Ubicación y acceso",prox_title:"Cinco minutos hasta el mar",prox_video_note:"Vídeo de dron: vuelo desde la casa hasta el mar — próximamente",prox_min_harbour:"min puerto",prox_min_beach:"min playa",prox_min_town:"min casco",prox_by_car:"en coche",prox_legend_harbour:"Ruta al puerto deportivo",prox_legend_beach:"Ruta a Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"A pie hasta la playa · aprox. 15 min.",
   emo_kicker:"Sentir la diferencia",emo_title:"Una casa que se siente",emo1_title:"Calma y descanso",emo1_text:"Empiece su mañana con vistas al Montgó. El silencio, el aire, la libertad — aquí se encuentra el descanso verdadero, lejos de la rutina.",emo2_title:"Reunirse y familia",emo2_text:"Tres apartamentos, posibilidades infinitas. Su familia tiene espacio para respirar, jugar y estar juntos. O invite a amigos — el espacio está ahí.",emo3_title:"Privacidad y exclusividad",emo3_text:"955 m² de total privacidad. Nadie mira hacia adentro; usted mira hacia su propio jardín verde. Su retiro personal en la Costa Blanca.",
   con_kicker:"Contacto",con_title:"Hablemos de Villa Candela",con_sub:"Directamente con los propietarios — de forma personal y de igual a igual. Esperamos su mensaje.",con_wa:"Escribir por WhatsApp",con_noagent:"Contacto directo con los propietarios · Acompañamiento personal hasta la visita",con_instagram:"Seguir en Instagram",
-  foot_loc:"Dénia · San Nicolás · Costa Blanca · España",foot_imprint:"Aviso legal",foot_privacy:"Privacidad",foot_rights:"Venta privada por los propietarios"},
+  foot_loc:"Dénia · San Nicolás · Costa Blanca · España",foot_imprint:"Aviso legal",foot_privacy:"Privacidad",foot_rights:"Venta privada por los propietarios",
+  cap_ext_01:"Piscina y torre redonda – vista sur",cap_ext_02:"Buganvilla y fachada – patio interior",cap_ext_03:"Piscina con torre y vistas al Montgó",cap_ext_04:"Piscina, torre y palmera – Montgó al fondo",cap_ext_05:"Fuente y vista general del jardín",cap_ext_06:"Jardín norte con naranjos",cap_ext_07:"Fachada y acceso",cap_ext_08:"Detalle de la entrada – escalera de terraza",cap_ext_09:"Hibisco y buganvilla en el jardín",
+  cap_main_01:"Salón – techo con vigas y vistas al jardín",cap_main_02:"Comedor con chimenea y vigas de madera",cap_main_03:"Cocina con vista a la chimenea",cap_main_04:"Terraza este – zona de estar con vistas al jardín",cap_main_05:"Baño principal – doble lavabo",cap_main_06:"Dormitorio vivienda principal",cap_main_07:"Sala de la torre",cap_main_08:"Terraza del tejado de la torre",cap_main_09:"Salón – detalle",
+  cap_apt1_01:"Apartamento I – zona de estar, dormir y cocina",cap_apt1_02:"Apartamento I – salón con vistas a la terraza",cap_apt1_03:"Apartamento I – terraza privada con buganvilla",
+  cap_apt2_01:"Apartamento II – salón y cocina",cap_apt2_02:"Apartamento II – dormitorio con dos camas individuales",cap_apt2_03:"Apartamento II – entrada con arco",
+  alt_dw_01:"Vista aérea – piscina y jardín desde arriba",alt_dw_02:"Sala de la torre – mampostería redonda y vigas",alt_dw_03:"Terraza este – zona de estar con vistas al Montgó",alt_dw_04:"Terraza techo torre – panorámica de Dénia",
+  alt_lg_01:"Puerto deportivo de Dénia – veleros al atardecer",alt_lg_02:"Montgó – panorámica sobre Dénia",alt_lg_03:"Playa Las Rotas – luz de tarde",alt_lg_04:"Dénia – palmera al amanecer",alt_lg_05:"Dénia – puerto y marina",
+  alt_zuhause:"Villa Candela – piscina, torre redonda y buganvilla",
+  alt_paradise_01:"Terraza techo torre – vistas privadas",alt_paradise_02:"Villa Candela – vista aérea",alt_paradise_03:"Jardín privado – oasis verde"},
 
  nl:{nav_highlights:"Hoogtepunten",nav_gallery:"Galerij",nav_units:"Eenheden",nav_data:"Objectdata",nav_location:"Ligging",nav_story:"Verhaal",nav_experience:"Bezichtiging",nav_cta:"Contact",
   hero_tagline:"Een huis voor gedeelde tijd – en eigen ruimtes.",hero_kicker:"Dénia · Costa Blanca · aan de voet van de Montgó",hero_sub:"Hoofdwoning met torensuite en twee zelfstandige appartementen op de begane grond op 955 m² privégrond — 30 jaar in familiebezit, liefdevol onderhouden en gemoderniseerd, op minuten van haven, strand en oude stad van Dénia.",hero_cta1:"Bezichtiging aanvragen",hero_cta2:"Ontdek de beleving",
@@ -794,10 +852,18 @@ const I18N={
   story_kicker:"Sinds 1996",story_title:"Een thuis, met liefde gebouwd",story_b1:"Drie decennia lang was Villa Candela het toevluchtsoord van een familie voor wie architectuur beroep en roeping is — een vader-architect, een zoon bouwkundig ingenieur. Wat hier staat, werd niet gekocht, maar vormgegeven, stap voor stap uitgebreid en met professionele standaarden onderhouden.",story_b2:"30 jaar familiebezit hebben geen slijtage achtergelaten, maar substantie die je voelt. Het huis, bouwkundig uitgebreid en volledig gemoderniseerd in 1998, verkeert vandaag in een staat die je zelden vindt — onderhouden door mensen die weten wat het inhoudt om een huis goed te bouwen. Nu begint een nieuw hoofdstuk voor Villa Candela. Misschien het uwe.",story_link:"Meer over het bouwbedrijf van de familie Moussavi in München",
   exp_kicker:"Privébezichtiging",exp_title:"Bezichtiging aanvragen",exp_b1:"Voor serieuze kopers organiseren wij na een eerste persoonlijk contact individuele bezichtigingen en geselecteerde privéafspraken. Het huis onthult zijn werkelijke karakter alleen wanneer het beleefd wordt — met alle zintuigen, op het juiste moment van de dag, in alle rust.",exp_b2:"Laat uw contactgegevens achter — wij nemen persoonlijk contact op en bespreken de volgende stappen.",
   f_name:"Naam",f_email:"E-mail",f_phone:"Telefoon",f_country:"Land",f_msg:"Uw bericht",f_qualify:"Ik heb serieuze koopinteresse in Villa Candela.",f_submit:"Bezichtiging aanvragen",f_ok:"Dank u — wij nemen persoonlijk contact met u op.",
-  prox_kicker:"Ligging & bereikbaarheid",prox_title:"Vijf minuten tot de zee",prox_video_note:"Dronevideo: vlucht van het huis naar de zee — volgt",prox_min_harbour:"min haven",prox_min_beach:"min strand",prox_min_town:"min centrum",prox_by_car:"met de auto",prox_legend_harbour:"Route naar de jachthaven",prox_legend_beach:"Route naar Las Rotas",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Ligging & bereikbaarheid",prox_title:"Vijf minuten tot de zee",prox_video_note:"Dronevideo: vlucht van het huis naar de zee — volgt",prox_min_harbour:"min haven",prox_min_beach:"min strand",prox_min_town:"min centrum",prox_by_car:"met de auto",prox_legend_harbour:"Route naar de jachthaven",prox_legend_beach:"Route naar Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Te voet naar het strand · ca. 15 min.",
   emo_kicker:"Voel het verschil",emo_title:"Een huis dat u voelt",emo1_title:"Rust & ontspanning",emo1_text:"Begin uw ochtend met uitzicht op de Montgó. De stilte, de lucht, de vrijheid — hier vindt u echte rust, ver van het dagelijks leven.",emo2_title:"Samenzijn & familie",emo2_text:"Drie appartementen, eindeloze mogelijkheden. Uw familie heeft ruimte om te ademen, te spelen, samen te zijn. Of nodig vrienden uit — de ruimte is er.",emo3_title:"Privacy & exclusiviteit",emo3_text:"955 m² volledige privacy. Niemand kijkt naar binnen; u kijkt naar buiten op uw eigen groene tuin. Uw persoonlijk toevluchtsoord aan de Costa Blanca.",
   con_kicker:"Contact",con_title:"Laten we over Villa Candela praten",con_sub:"Rechtstreeks met de eigenaren — persoonlijk en gelijkwaardig. Wij horen graag van u.",con_wa:"Bericht via WhatsApp",con_noagent:"Direct contact met de eigenaren · Persoonlijke begeleiding tot de bezichtiging",con_instagram:"Volgen op Instagram",
-  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanje",foot_imprint:"Colofon",foot_privacy:"Privacy",foot_rights:"Particuliere verkoop door de eigenaren"},
+  foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanje",foot_imprint:"Colofon",foot_privacy:"Privacy",foot_rights:"Particuliere verkoop door de eigenaren",
+  cap_ext_01:"Zwembad en ronde toren – zuidgevel",cap_ext_02:"Bougainvillea en gevel – binnenplaats",cap_ext_03:"Zwembad met toren en Montgó-uitzicht",cap_ext_04:"Zwembad, toren en palmboom – Montgó op de achtergrond",cap_ext_05:"Fontein en tuinoverzicht",cap_ext_06:"Noordtuin met sinaasappelbomen",cap_ext_07:"Gevel en ingangspartij",cap_ext_08:"Ingangsdetail – terrastrede",cap_ext_09:"Hibiscus en bougainvillea in de tuin",
+  cap_main_01:"Woonkamer – balkenplafond en tuinzicht",cap_main_02:"Eetkamer met open haard en houten balken",cap_main_03:"Keuken met zicht op de open haard",cap_main_04:"Oostterrasse – zithoek met tuinzicht",cap_main_05:"Hoofdbadkamer – dubbele wastafel",cap_main_06:"Slaapkamer hoofdwoning",cap_main_07:"Torenkamer",cap_main_08:"Dakterras van de torenkamer",cap_main_09:"Woonkamer – detail",
+  cap_apt1_01:"Appartement I – open woon-, slaap- en keukenruimte",cap_apt1_02:"Appartement I – woonkamer met terrasblick",cap_apt1_03:"Appartement I – privéterras met bougainvillea",
+  cap_apt2_01:"Appartement II – woon- en keukenruimte",cap_apt2_02:"Appartement II – slaapkamer met twee eenpersoonsbedden",cap_apt2_03:"Appartement II – entree met boog",
+  alt_dw_01:"Luchtfoto – zwembad en tuin van bovenaf",alt_dw_02:"Torenkamer – ronde muren en houten balken",alt_dw_03:"Oostterrasse – zithoek met Montgó-uitzicht",alt_dw_04:"Dakterras torenkamer – panorama over Dénia",
+  alt_lg_01:"Jachthaven Dénia – zeilboten in het avondlicht",alt_lg_02:"Montgó – panorama over Dénia",alt_lg_03:"Strand Las Rotas – avondlicht",alt_lg_04:"Dénia – palmboom bij zonsopgang",alt_lg_05:"Dénia – haven en marina",
+  alt_zuhause:"Villa Candela – zwembad, ronde toren en bougainvillea",
+  alt_paradise_01:"Dakterras torenkamer – privéuitzicht",alt_paradise_02:"Villa Candela – luchtfoto",alt_paradise_03:"Privétuin – groene oase"},
 
  fr:{nav_highlights:"Atouts",nav_gallery:"Galerie",nav_units:"Logements",nav_data:"Données",nav_location:"Emplacement",nav_story:"Histoire",nav_experience:"Visite",nav_cta:"Contact",
   hero_tagline:"Une maison pour des moments partagés – et des espaces bien à soi.",hero_kicker:"Dénia · Costa Blanca · au pied du Montgó",hero_sub:"Résidence principale avec suite dans la tour et deux appartements indépendants au rez-de-chaussée sur 955 m² de jardin privé — 30 ans en propriété familiale, entretenue et modernisée avec soin, à quelques minutes du port, de la plage et de la vieille ville de Dénia.",hero_cta1:"Demander une visite",hero_cta2:"Découvrir l'expérience",
@@ -821,10 +887,18 @@ const I18N={
   story_kicker:"Depuis 1996",story_title:"Un foyer, bâti avec amour",story_b1:"Trois décennies durant, la Villa Candela fut le refuge d’une famille pour qui l’architecture est à la fois métier et vocation — un père architecte, un fils ingénieur en construction. Ce qui se dresse ici n’a pas été acheté, mais conçu, agrandi progressivement et entretenu avec l’exigence des professionnels.",story_b2:"30 ans de propriété familiale n’ont laissé ni usure, mais une substance que l’on ressent. La maison, agrandie et entièrement modernisée en 1998, est aujourd’hui dans un état qu’on trouve rarement — entretenue par des personnes qui savent comment une maison doit être construite. Un nouveau chapitre commence pour la Villa Candela. Peut-être le vôtre.",story_link:"En savoir plus sur l’entreprise de construction de la famille Moussavi à Munich",
   exp_kicker:"Visite privée",exp_title:"Demander une visite",exp_b1:"Pour les acquéreurs sérieux, nous organisons des visites individuelles et des rendez-vous privés sélectionnés après un premier contact personnel. La maison révèle son véritable caractère seulement lorsqu'on la vit — avec tous les sens, au bon moment de la journée, dans le calme complet.",exp_b2:"Laissez vos coordonnées — nous vous contacterons personnellement pour discuter des prochaines étapes.",
   f_name:"Nom",f_email:"E-mail",f_phone:"Téléphone",f_country:"Pays",f_msg:"Votre message",f_qualify:"J'ai un intérêt d'achat sérieux pour la Villa Candela.",f_submit:"Demander une visite",f_ok:"Merci — nous vous contacterons personnellement.",
-  prox_kicker:"Situation et accès",prox_title:"Cinq minutes jusqu'à la mer",prox_video_note:"Vidéo drone : vol de la maison vers la mer — à venir",prox_min_harbour:"min port",prox_min_beach:"min plage",prox_min_town:"min centre",prox_by_car:"en voiture",prox_legend_harbour:"Itinéraire vers le port",prox_legend_beach:"Itinéraire vers Las Rotas",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Situation et accès",prox_title:"Cinq minutes jusqu'à la mer",prox_video_note:"Vidéo drone : vol de la maison vers la mer — à venir",prox_min_harbour:"min port",prox_min_beach:"min plage",prox_min_town:"min centre",prox_by_car:"en voiture",prox_legend_harbour:"Itinéraire vers le port",prox_legend_beach:"Itinéraire vers Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"À pied jusqu'à la plage · env. 15 min.",
   emo_kicker:"Ressentir la différence",emo_title:"Une maison qui se ressent",emo1_title:"Calme & sérénité",emo1_text:"Commencez votre matinée avec vue sur le Montgó. Le silence, l'air, la liberté — ici, on trouve un vrai repos, loin du quotidien.",emo2_title:"Partage & famille",emo2_text:"Trois appartements, des possibilités infinies. Votre famille a de l'espace pour respirer, jouer, être ensemble. Ou invitez des amis — la place est là.",emo3_title:"Intimité & exclusivité",emo3_text:"955 m² de total intimité. Personne ne regarde à l'intérieur ; vous regardez votre propre jardin vert. Votre retraite personnelle sur la Costa Blanca.",
   con_kicker:"Contact",con_title:"Parlons de la Villa Candela",con_sub:"Directement avec les propriétaires — personnellement et d'égal à égal. Au plaisir de vous lire.",con_wa:"Écrire sur WhatsApp",con_noagent:"Contact direct avec les propriétaires · Accompagnement personnel jusqu'à la visite",con_instagram:"Suivre sur Instagram",
-  foot_loc:"Dénia · San Nicolás · Costa Blanca · Espagne",foot_imprint:"Mentions légales",foot_privacy:"Confidentialité",foot_rights:"Vente privée par les propriétaires"},
+  foot_loc:"Dénia · San Nicolás · Costa Blanca · Espagne",foot_imprint:"Mentions légales",foot_privacy:"Confidentialité",foot_rights:"Vente privée par les propriétaires",
+  cap_ext_01:"Piscine et tour ronde – façade sud",cap_ext_02:"Bougainvillée et façade – cour intérieure",cap_ext_03:"Piscine avec tour et vue sur le Montgó",cap_ext_04:"Piscine, tour et palmier – Montgó en arrière-plan",cap_ext_05:"Fontaine et vue sur le jardin",cap_ext_06:"Jardin nord avec orangers",cap_ext_07:"Façade et entrée",cap_ext_08:"Détail de l'entrée – escalier de terrasse",cap_ext_09:"Hibiscus et bougainvillée dans le jardin",
+  cap_main_01:"Salon – plafond à poutres et vue sur le jardin",cap_main_02:"Salle à manger avec cheminée et poutres en bois",cap_main_03:"Cuisine avec vue sur la cheminée",cap_main_04:"Terrasse est – coin salon avec vue sur le jardin",cap_main_05:"Salle de bain principale – double vasque",cap_main_06:"Chambre résidence principale",cap_main_07:"Chambre de la tour",cap_main_08:"Terrasse toit de la tour",cap_main_09:"Salon – détail",
+  cap_apt1_01:"Appartement I – espace séjour, nuit et cuisine",cap_apt1_02:"Appartement I – salon avec vue sur la terrasse",cap_apt1_03:"Appartement I – terrasse privée avec bougainvillée",
+  cap_apt2_01:"Appartement II – espace séjour et cuisine",cap_apt2_02:"Appartement II – chambre avec deux lits simples",cap_apt2_03:"Appartement II – entrée avec arche",
+  alt_dw_01:"Vue aérienne – piscine et jardin vus du ciel",alt_dw_02:"Chambre de la tour – maçonnerie ronde et poutres",alt_dw_03:"Terrasse est – coin salon avec vue sur le Montgó",alt_dw_04:"Terrasse toit tour – panorama sur Dénia",
+  alt_lg_01:"Port de plaisance de Dénia – voiliers en soirée",alt_lg_02:"Montgó – panorama sur Dénia",alt_lg_03:"Plage Las Rotas – lumière du soir",alt_lg_04:"Dénia – palmier au lever du soleil",alt_lg_05:"Dénia – port et marina",
+  alt_zuhause:"Villa Candela – piscine, tour ronde et bougainvillée",
+  alt_paradise_01:"Terrasse toit tour – vue privée",alt_paradise_02:"Villa Candela – vue aérienne",alt_paradise_03:"Jardin privé – oasis verte"},
 
  ru:{nav_highlights:"Преимущества",nav_gallery:"Галерея",nav_units:"Блоки",nav_data:"Параметры",nav_location:"Расположение",nav_story:"История",nav_experience:"Просмотр",nav_cta:"Запрос",
   hero_tagline:"Дом для совместного времени – и собственного пространства.",hero_kicker:"Дения · Коста-Бланка · у подножия Монгó",hero_sub:"Главная резиденция с башенной сюитой и двумя автономными квартирами на первом этаже на участке 955 м² — 30 лет в семейном владении, с любовью ухоженная и модернизированная, в нескольких минутах от порта, пляжа и старого города Дении.",hero_cta1:"Запросить просмотр",hero_cta2:"Узнать об опыте",
@@ -848,10 +922,18 @@ const I18N={
   story_kicker:"С 1996 года",story_title:"Дом, построенный с любовью",story_b1:"Три десятилетия Villa Candela была убежищем семьи, для которой архитектура — и профессия, и призвание: отец-архитектор, сын — инженер-строитель. То, что стоит здесь, не куплено, а создано, постепенно расширено и ухожено с профессиональными стандартами.",story_b2:"30 лет семейного владения оставили не следы износа, а основательность, которую чувствуешь. Дом, структурно расширенный и полностью модернизированный в 1998 году, сегодня находится в состоянии, которое редко встретишь — ухоженный людьми, которые знают, как должен быть построен дом. Теперь для Villa Candela начинается новая глава. Возможно, ваша.",story_link:"Подробнее о строительном бизнесе семьи Moussavi в Мюнхене",
   exp_kicker:"Личный просмотр",exp_title:"Запросить просмотр",exp_b1:"Для серьёзных покупателей мы организуем индивидуальные просмотры и избранные личные встречи после первого личного контакта. Дом раскрывает свой истинный характер только тогда, когда его переживаешь — всеми чувствами, в нужное время суток, в полном покое.",exp_b2:"Оставьте свои контактные данные — мы свяжемся с вами лично и обсудим дальнейшие шаги.",
   f_name:"Имя",f_email:"E-mail",f_phone:"Телефон",f_country:"Страна",f_msg:"Ваше сообщение",f_qualify:"У меня серьёзный интерес к покупке Villa Candela.",f_submit:"Запросить просмотр",f_ok:"Спасибо — мы свяжемся с вами лично.",
-  prox_kicker:"Расположение и доступность",prox_title:"Пять минут до моря",prox_video_note:"Видео с дрона: полёт от дома к морю — скоро",prox_min_harbour:"мин порт",prox_min_beach:"мин пляж",prox_min_town:"мин центр",prox_by_car:"на машине",prox_legend_harbour:"Маршрут до яхтенного порта",prox_legend_beach:"Маршрут до Лас-Ротас",prox_legend_villa:"Villa Candela",
+  prox_kicker:"Расположение и доступность",prox_title:"Пять минут до моря",prox_video_note:"Видео с дрона: полёт от дома к морю — скоро",prox_min_harbour:"мин порт",prox_min_beach:"мин пляж",prox_min_town:"мин центр",prox_by_car:"на машине",prox_legend_harbour:"Маршрут до яхтенного порта",prox_legend_beach:"Маршрут до Лас-Ротас",prox_legend_villa:"Villa Candela",prox_legend_walk:"Пешком до пляжа · ок. 15 мин.",
   emo_kicker:"Почувствуйте разницу",emo_title:"Дом, который ощущаешь",emo1_title:"Покой & отдых",emo1_text:"Начните утро с видом на Монгó. Тишина, воздух, свобода — здесь находят настоящий отдых, вдали от повседневной суеты.",emo2_title:"Единение & семья",emo2_text:"Три апартамента, безграничные возможности. Ваша семья имеет пространство для дыхания, игр и совместного времяпровождения. Или пригласите друзей — места хватит.",emo3_title:"Приватность & эксклюзивность",emo3_text:"955 м² полной приватности. Никто не заглядывает внутрь; вы смотрите на собственный зелёный сад. Ваше личное убежище на Коста-Бланке.",
   con_kicker:"Контакт",con_title:"Поговорим о Villa Candela",con_sub:"Напрямую с владельцами — лично и на равных. Будем рады вашему сообщению.",con_wa:"Написать в WhatsApp",con_noagent:"Прямой контакт с владельцами · Личное сопровождение до просмотра",con_instagram:"Подписаться в Instagram",
-  foot_loc:"Дения · Сан-Николас · Коста-Бланка · Испания",foot_imprint:"Импрессум",foot_privacy:"Конфиденциальность",foot_rights:"Частная продажа владельцами"}
+  foot_loc:"Дения · Сан-Николас · Коста-Бланка · Испания",foot_imprint:"Импрессум",foot_privacy:"Конфиденциальность",foot_rights:"Частная продажа владельцами",
+  cap_ext_01:"Бассейн и круглая башня – вид с юга",cap_ext_02:"Бугенвиллея и фасад – внутренний дворик",cap_ext_03:"Бассейн с башней и видом на Монгó",cap_ext_04:"Бассейн, башня и пальма – Монгó на заднем плане",cap_ext_05:"Фонтан и обзор сада",cap_ext_06:"Северный сад с апельсиновыми деревьями",cap_ext_07:"Фасад и вход",cap_ext_08:"Деталь входа – ступени террасы",cap_ext_09:"Гибискус и бугенвиллея в саду",
+  cap_main_01:"Гостиная – балочный потолок и вид на сад",cap_main_02:"Столовая с камином и деревянными балками",cap_main_03:"Кухня с видом на камин",cap_main_04:"Восточная терраса – зона отдыха с видом на сад",cap_main_05:"Главная ванная – двойная раковина",cap_main_06:"Спальня главных апартаментов",cap_main_07:"Комната башни",cap_main_08:"Крышная терраса башни",cap_main_09:"Гостиная – деталь",
+  cap_apt1_01:"Апартаменты I – жилая зона, спальня и кухня",cap_apt1_02:"Апартаменты I – гостиная с видом на террасу",cap_apt1_03:"Апартаменты I – частная терраса с бугенвиллеей",
+  cap_apt2_01:"Апартаменты II – гостиная и кухня",cap_apt2_02:"Апартаменты II – спальня с двумя односпальными кроватями",cap_apt2_03:"Апартаменты II – вход с аркой",
+  alt_dw_01:"Вид с воздуха – бассейн и сад сверху",alt_dw_02:"Комната башни – круглая кладка и деревянные балки",alt_dw_03:"Восточная терраса – зона отдыха с видом на Монгó",alt_dw_04:"Крышная терраса башни – панорама над Денией",
+  alt_lg_01:"Яхтенная марина Дении – парусники в вечернем свете",alt_lg_02:"Монгó – панорама над Денией",alt_lg_03:"Пляж Лас-Ротас – вечерний свет",alt_lg_04:"Дения – пальма на рассвете",alt_lg_05:"Дения – порт и марина",
+  alt_zuhause:"Villa Candela – бассейн, круглая башня и бугенвиллея",
+  alt_paradise_01:"Крышная терраса башни – частный вид",alt_paradise_02:"Villa Candela – вид с воздуха",alt_paradise_03:"Частный сад – зелёный оазис"}
 };
 const META={de:{t:"Villa Candela — Mediterranes Refugium am Montgó, Dénia",d:"Villa Candela in Dénia: drei Wohneinheiten, Pool, großer Garten, fußläufig zu Hafen und Meer."},
  en:{t:"Villa Candela — Mediterranean retreat on the Montgó, Dénia",d:"Villa Candela in Dénia: three living units, pool, large garden, walking distance to harbour and sea."},
@@ -862,10 +944,13 @@ const META={de:{t:"Villa Candela — Mediterranes Refugium am Montgó, Dénia",d
 
 function setLang(lang){
   if(!I18N[lang])lang='de';
+  _lang=lang;
   document.documentElement.lang=lang;
   buildUsp(I18N[lang]);
   buildInt(lang);
+  document.getElementById('grid-ext').innerHTML=EXT.map(x=>figIt(x[0],x[1],x[2])).join('');
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(I18N[lang][k]!=null)el.textContent=I18N[lang][k];});
+  document.querySelectorAll('[data-i18n-alt]').forEach(el=>{const k=el.getAttribute('data-i18n-alt');if(I18N[lang][k]!=null)el.alt=I18N[lang][k];});
   document.title=META[lang].t;
   document.querySelector('meta[name=description]').setAttribute('content',META[lang].d);
   document.getElementById('langsel').value=lang;
@@ -901,99 +986,8 @@ function handleSubmit(e){
   return false;
 }
 
-// ── LEAFLET PROXIMITY MAP ────────────────────────────────────────────────
-// Koordinaten (WGS84): Villa Candela, Yachthafen Dénia, Las Rotas
-// Feinabstimmung: Koordinaten direkt in der Karte anpassen wenn nötig
-(function initProximityMap(){
-  var mapEl = document.getElementById('proximity-map');
-  if(!mapEl) return;
-
-  // Lazy init: erst laden wenn Karte im Viewport
-  var observed = false;
-  var mapObserver = new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting && !observed){
-      observed = true;
-      mapObserver.disconnect();
-      loadLeaflet();
-    }
-  }, {threshold: 0.1});
-  mapObserver.observe(mapEl);
-
-  function loadLeaflet(){
-    // Leaflet CSS
-    var lc = document.createElement('link');
-    lc.rel = 'stylesheet';
-    lc.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
-    document.head.appendChild(lc);
-    // Leaflet JS
-    var ls = document.createElement('script');
-    ls.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
-    ls.onload = function(){ buildMap(); };
-    document.head.appendChild(ls);
-  }
-
-  function buildMap(){
-    // Koordinaten (WGS84) — Dénia liegt ÖSTLICH des Nullmeridians (positive Longitude!)
-    var villa   = [38.827971,  0.1222344];  // Carrer Romer 10, Dénia — aus Google Maps verifiziert
-    var harbour = [38.8490,    0.1070];     // Puerto Náutico de Dénia
-    var beach   = [38.8155,    0.1385];     // Las Rotas (Marker, keine Route)
-    var altstadt= [38.8400,    0.1040];     // Altstadt / Burg Dénia
-
-    var map = L.map('proximity-map', {
-      center: [38.836, 0.115],
-      zoom: 13,
-      scrollWheelZoom: false,
-      zoomControl: true,
-      attributionControl: true
-    });
-
-    // OpenStreetMap Tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18
-    }).addTo(map);
-
-    // Custom Marker-Icons
-    function circleIcon(color, size, border){
-      return L.divIcon({
-        html: '<div style="width:'+size+'px;height:'+size+'px;background:'+color+';border:'+border+';border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.4)"></div>',
-        iconSize: [size, size], iconAnchor: [size/2, size/2], className:''
-      });
-    }
-    var villaIcon   = circleIcon('#C8912F', 18, '3px solid #FAF6EE');
-    var destIcon    = circleIcon('#5A5048', 13, '2px solid #FAF6EE');
-
-    // Marker
-    var lang = document.documentElement.lang || 'de';
-    var L18N = {
-      de:{villa:'Villa Candela',harbour:'Yachthafen Dénia',harbour_d:'5 Min. Auto · 15 Min. zu Fuß',beach:'Las Rotas',beach_d:'2 Min. Auto · 10 Min. zu Fuß',altstadt:'Altstadt Dénia',alt_d:'7 Min. Auto · 25 Min. zu Fuß'},
-      en:{villa:'Villa Candela',harbour:'Dénia Marina',harbour_d:'5 min by car · 15 min on foot',beach:'Las Rotas',beach_d:'2 min by car · 10 min on foot',altstadt:'Dénia Old Town',alt_d:'7 min by car · 25 min on foot'},
-      es:{villa:'Villa Candela',harbour:'Puerto de Dénia',harbour_d:'5 min en coche · 15 min a pie',beach:'Las Rotas',beach_d:'2 min en coche · 10 min a pie',altstadt:'Casco Antiguo',alt_d:'7 min en coche · 25 min a pie'},
-      nl:{villa:'Villa Candela',harbour:'Jachthaven Dénia',harbour_d:'5 min auto · 15 min lopen',beach:'Las Rotas',beach_d:'2 min auto · 10 min lopen',altstadt:'Oude stad Dénia',alt_d:'7 min auto · 25 min lopen'},
-      fr:{villa:'Villa Candela',harbour:'Port de Dénia',harbour_d:'5 min en voiture · 15 min à pied',beach:'Las Rotas',beach_d:'2 min en voiture · 10 min à pied',altstadt:'Vieille ville',alt_d:'7 min en voiture · 25 min à pied'},
-      ru:{villa:'Villa Candela',harbour:'Яхтенный порт Дении',harbour_d:'5 мин авто · 15 мин пешком',beach:'Лас-Ротас',beach_d:'2 мин авто · 10 мин пешком',altstadt:'Старый город',alt_d:'7 мин авто · 25 мин пешком'}
-    };
-    var t = L18N[lang] || L18N.de;
-
-    L.marker(villa, {icon: villaIcon}).addTo(map)
-      .bindPopup('<b>'+t.villa+'</b>');
-    L.marker(harbour, {icon: destIcon}).addTo(map)
-      .bindPopup('<b>'+t.harbour+'</b><br><span style="font-size:12px;color:#5A5048">'+t.harbour_d+'</span>');
-    L.marker(beach, {icon: destIcon}).addTo(map)
-      .bindPopup('<b>'+t.beach+'</b><br><span style="font-size:12px;color:#5A5048">'+t.beach_d+'</span>');
-    L.marker(altstadt, {icon: destIcon}).addTo(map)
-      .bindPopup('<b>'+t.altstadt+'</b><br><span style="font-size:12px;color:#5A5048">'+t.alt_d+'</span>');
-
-    // Route: nur Villa → Hafen (gestrichelt amber)
-    L.polyline([villa, harbour], {
-      color:'#C8912F', weight:3.5, opacity:0.85, dashArray:'8,5'
-    }).addTo(map);
-
-    // Bounds: Villa + Hafen (+ leichter Puffer damit Las Rotas-Marker sichtbar bleibt)
-    var bounds = L.latLngBounds([villa, harbour, beach]);
-    map.fitBounds(bounds, {padding:[50,50]});
-  }
-})();
+// ── PROXIMITY MAP: Google Maps Embed (Fußweg Villa → Parque Marineta Casiana) ────────────
+// Karte als statisches iframe eingebunden — kein JS nötig
 </script>
 </body>
 </html>
