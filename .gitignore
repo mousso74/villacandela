@@ -1,3 +1,7 @@
 .DS_Store
 **/.DS_Store
 Thumbs.db
+
+# Tailwind Standalone-Binary (nicht committen — nur lokales Build-Werkzeug)
+tailwindcss
+node_modules/
