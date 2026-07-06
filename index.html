@@ -617,7 +617,7 @@ try{ if(localStorage.getItem('vc_consent')==='granted'){ window.initMetaPixel();
     </div>
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
       <a href="mailto:hola@villacandeladenia.com?subject=Villa%20Candela" onclick="trackEvent('email_click','contact_section')" class="bg-ink text-cream px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-ink/80 transition">hola@villacandeladenia.com</a>
-      <a href="https://wa.me/491792955522" target="_blank" rel="noopener" onclick="trackEvent('whatsapp_click','contact_section')" class="border border-ink px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-ink hover:text-cream transition" data-i18n="con_wa">WhatsApp schreiben</a>
+      <a href="https://wa.me/491792955522" target="_blank" rel="noopener" onclick="handleWa(event,'contact_section')" class="border border-ink px-8 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-ink hover:text-cream transition" data-i18n="con_wa">WhatsApp schreiben</a>
     </div>
     <a href="https://instagram.com/villacandeladenia" target="_blank" rel="noopener" onclick="trackEvent('instagram_click','contact_section')" class="inline-flex items-center gap-2 text-inksoft/60 hover:text-ember transition text-sm">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -656,7 +656,7 @@ try{ if(localStorage.getItem('vc_consent')==='granted'){ window.initMetaPixel();
   <p class="text-center text-[11px] text-cream/35 mt-8">© 2026 Villa Candela · <span data-i18n="foot_rights">Privatverkauf durch die Eigentümer</span></p>
 </footer>
 
-<a href="https://wa.me/491792955522" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="trackEvent('whatsapp_click','float_button')" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition">
+<a href="https://wa.me/491792955522" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="handleWa(event,'float_button')" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
 
@@ -691,6 +691,48 @@ function trackEvent(action, label) {
   }
   if(typeof fbq !== 'undefined') {
     fbq('trackCustom', action, {label:label});
+  }
+}
+
+// WhatsApp: vorausgefüllter Text (sprachabhängig) + Desktop-QR-Fallback
+// Grund: wa.me öffnet auf Desktop ohne aktive WhatsApp-Web-Session nur einen
+// nutzlosen Login/QR-Screen. Mobile funktioniert direkt — dort bleibt der
+// normale Deep-Link, nur mit vorausgefülltem Text statt leerem Chat.
+function isMobileUA(){
+  return /Android|iPhone|iPad|iPod|Mobile|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent);
+}
+function waLink(){
+  const L = I18N[_lang] || I18N.de;
+  const msg = L.wa_prefill || I18N.de.wa_prefill;
+  return 'https://wa.me/491792955522?text=' + encodeURIComponent(msg);
+}
+function openWaModal(url){
+  let m = document.getElementById('wa-modal');
+  if(!m){
+    m = document.createElement('div');
+    m.id = 'wa-modal';
+    m.className = 'fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-6';
+    m.onclick = function(e){ if(e.target === m) m.remove(); };
+    document.body.appendChild(m);
+  }
+  const L = I18N[_lang] || I18N.de;
+  const qr = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(url);
+  m.innerHTML = `<div class="bg-cream rounded-2xl p-8 max-w-sm w-full text-center relative shadow-2xl">
+    <button aria-label="${L.wa_modal_close||'Close'}" onclick="document.getElementById('wa-modal').remove()" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-sand text-inksoft text-xl leading-none">&times;</button>
+    <p class="font-serif text-xl mb-2 text-ink">${L.wa_modal_title||''}</p>
+    <p class="text-sm text-inksoft mb-5">${L.wa_modal_text||''}</p>
+    <img src="${qr}" alt="WhatsApp QR" class="mx-auto rounded-lg border border-stone" width="220" height="220">
+    <a href="${url}" target="_blank" rel="noopener" class="block mt-5 text-xs uppercase tracking-wider text-amber hover:text-ember underline">${L.con_wa||'WhatsApp'}</a>
+  </div>`;
+}
+function handleWa(event, source){
+  if(event && event.preventDefault) event.preventDefault();
+  trackEvent('whatsapp_click', source);
+  const url = waLink();
+  if(isMobileUA()){
+    window.open(url, '_blank', 'noopener');
+  } else {
+    openWaModal(url);
   }
 }
 
@@ -826,6 +868,7 @@ const I18N={
   prox_kicker:"Lage & Erreichbarkeit",prox_title:"Fünf Minuten bis ans Meer",prox_video_note:"Drohnenvideo: Flug vom Haus zum Meer — folgt",prox_min_harbour:"Min. Hafen",prox_min_beach:"Min. Strand",prox_min_town:"Min. Altstadt",prox_by_car:"jeweils mit dem Auto",prox_legend_harbour:"Route zum Yachthafen",prox_legend_beach:"Route zu Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Fußweg zum Strand · ca. 15 Min.",
   emo_kicker:"Das Besondere erleben",emo_title:"Ein Haus, das man fühlt",emo1_title:"Ruhe & Entspannung",emo1_text:"Starten Sie Ihren Morgen mit Blick auf den Montgó. Die Stille, die Luft, die Freiheit — hier findet man echte Erholung, fernab vom Alltag.",emo2_title:"Zusammenkommen & Familie",emo2_text:"Drei Apartments, unbegrenzte Möglichkeiten. Ihre Familie hat Platz zum Atmen, zum Spielen, zum Zusammensein. Oder laden Sie Freunde ein — der Platz ist da.",emo3_title:"Privatsphäre & Exklusivität",emo3_text:"955 m² vollständige Privatsphäre. Niemand schaut herein, Sie schauen hinaus auf Ihren eigenen grünen Garten. Ihre persönliche Rückzugsoase an der Costa Blanca.",
   con_kicker:"Kontakt",con_title:"Sprechen wir über Villa Candela",con_sub:"Direkt mit den Eigentümern — persönlich und auf Augenhöhe. Wir freuen uns auf Ihre Nachricht.",con_wa:"WhatsApp schreiben",con_noagent:"Direkter Kontakt mit den Eigentümern · Persönliche Begleitung bis zur Besichtigung",con_instagram:"Instagram folgen",
+  wa_prefill:"Hallo Armin, ich interessiere mich für Villa Candela in Dénia und hätte gerne weitere Informationen.",wa_modal_title:"Chatte mit deinem Handy",wa_modal_text:"Scanne diesen QR-Code mit der Kamera deines Handys, um den WhatsApp-Chat direkt zu öffnen.",wa_modal_close:"Schließen",
   foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanien",foot_imprint:"Impressum",foot_privacy:"Datenschutz",foot_rights:"Privatverkauf durch die Eigentümer",
   cap_ext_01:"Pool und Turm",cap_ext_02:"Südgarten",cap_ext_03:"Terrasse Apartment 2",cap_ext_04:"Pool",cap_ext_05:"Relaxen in der Sonne",cap_ext_06:"Nordgarten",cap_ext_07:"Einfahrt und Garagentor",cap_ext_08:"Einfahrt – Blick nach Westen",cap_ext_09:"Springbrunnen mit Sitzecke",
   cap_ext_10:"Springbrunnen mit Grillplatz",cap_ext_11:"Detail Springbrunnen",cap_ext_12:"Detail Gebäude",
@@ -865,6 +908,7 @@ const I18N={
   prox_kicker:"Location & Access",prox_title:"Five Minutes to the Sea",prox_video_note:"Drone video: flight from the house to the sea — coming soon",prox_min_harbour:"min harbour",prox_min_beach:"min beach",prox_min_town:"min old town",prox_by_car:"each by car",prox_legend_harbour:"Route to the marina",prox_legend_beach:"Route to Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Walking to the beach · approx. 15 min.",
   emo_kicker:"Feel the difference",emo_title:"A house you feel",emo1_title:"Peace & relaxation",emo1_text:"Start your morning with a view of the Montgó. The silence, the air, the freedom — this is where real rest is found, far from everyday life.",emo2_title:"Togetherness & family",emo2_text:"Three apartments, endless possibilities. Your family has room to breathe, to play, to be together. Or invite friends — the space is there.",emo3_title:"Privacy & exclusivity",emo3_text:"955 m² of complete privacy. No one looks in; you look out onto your own green garden. Your personal retreat on the Costa Blanca.",
   con_kicker:"Contact",con_title:"Let's talk about Villa Candela",con_sub:"Directly with the owners — personal and on equal terms. We look forward to hearing from you.",con_wa:"Message on WhatsApp",con_noagent:"Direct contact with the owners · Personal guidance from enquiry to viewing",con_instagram:"Follow on Instagram",
+  wa_prefill:"Hello Armin, I'm interested in Villa Candela in Dénia and would like more information.",wa_modal_title:"Chat from your phone",wa_modal_text:"Scan this QR code with your phone's camera to open the WhatsApp chat directly.",wa_modal_close:"Close",
   foot_loc:"Dénia · San Nicolás · Costa Blanca · Spain",foot_imprint:"Imprint",foot_privacy:"Privacy",foot_rights:"Private sale by the owners",
   cap_ext_01:"Pool and tower",cap_ext_02:"South garden",cap_ext_03:"Apartment 2 terrace",cap_ext_04:"Pool",cap_ext_05:"Relaxing in the sun",cap_ext_06:"North garden",cap_ext_07:"Driveway and garage door",cap_ext_08:"Driveway – view west",cap_ext_09:"Fountain with seating area",cap_ext_10:"Fountain with barbecue area",cap_ext_11:"Fountain detail",cap_ext_12:"Building detail",
   cap_main_01:"Entrance area",cap_main_02:"Kitchen with view of the fireplace",cap_main_03:"Kitchen",cap_main_04:"View towards the living room",cap_main_05:"Dining room",cap_main_06:"View from dining room towards the fireplace",cap_main_07:"Living room",cap_main_08:"Living room East terrace",cap_main_09:"View from the terrace to the fountain",cap_main_10:"View from the living room to the dining room",cap_main_11:"Children's room",cap_main_12:"Study",cap_main_13:"Bedroom",cap_main_14:"West terrace",cap_main_15:"Tower room",cap_main_16:"Tower room terrace",cap_main_17:"Tower room bathroom",cap_main_18:"View from the tower room terrace to the Montgó",
@@ -900,6 +944,7 @@ const I18N={
   prox_kicker:"Ubicación y acceso",prox_title:"Cinco minutos hasta el mar",prox_video_note:"Vídeo de dron: vuelo desde la casa hasta el mar — próximamente",prox_min_harbour:"min puerto",prox_min_beach:"min playa",prox_min_town:"min casco",prox_by_car:"en coche",prox_legend_harbour:"Ruta al puerto deportivo",prox_legend_beach:"Ruta a Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"A pie hasta la playa · aprox. 15 min.",
   emo_kicker:"Sentir la diferencia",emo_title:"Una casa que se siente",emo1_title:"Calma y descanso",emo1_text:"Empiece su mañana con vistas al Montgó. El silencio, el aire, la libertad — aquí se encuentra el descanso verdadero, lejos de la rutina.",emo2_title:"Reunirse y familia",emo2_text:"Tres apartamentos, posibilidades infinitas. Su familia tiene espacio para respirar, jugar y estar juntos. O invite a amigos — el espacio está ahí.",emo3_title:"Privacidad y exclusividad",emo3_text:"955 m² de total privacidad. Nadie mira hacia adentro; usted mira hacia su propio jardín verde. Su retiro personal en la Costa Blanca.",
   con_kicker:"Contacto",con_title:"Hablemos de Villa Candela",con_sub:"Directamente con los propietarios — de forma personal y de igual a igual. Esperamos su mensaje.",con_wa:"Escribir por WhatsApp",con_noagent:"Contacto directo con los propietarios · Acompañamiento personal hasta la visita",con_instagram:"Seguir en Instagram",
+  wa_prefill:"Hola Armin, estoy interesado/a en Villa Candela en Dénia y me gustaría recibir más información.",wa_modal_title:"Chatea desde tu móvil",wa_modal_text:"Escanea este código QR con la cámara de tu móvil para abrir el chat de WhatsApp directamente.",wa_modal_close:"Cerrar",
   foot_loc:"Dénia · San Nicolás · Costa Blanca · España",foot_imprint:"Aviso legal",foot_privacy:"Privacidad",foot_rights:"Venta privada por los propietarios",
   cap_ext_01:"Piscina y torre",cap_ext_02:"Jardín sur",cap_ext_03:"Terraza Apartamento 2",cap_ext_04:"Piscina",cap_ext_05:"Relajarse al sol",cap_ext_06:"Jardín norte",cap_ext_07:"Acceso y puerta de garaje",cap_ext_08:"Acceso – vista al oeste",cap_ext_09:"Fuente con zona de descanso",cap_ext_10:"Fuente con zona de barbacoa",cap_ext_11:"Detalle fuente",cap_ext_12:"Detalle edificio",
   cap_main_01:"Zona de entrada",cap_main_02:"Cocina con vistas a la chimenea",cap_main_03:"Cocina",cap_main_04:"Vista hacia el salón",cap_main_05:"Comedor",cap_main_06:"Vista desde el comedor hacia la chimenea",cap_main_07:"Salón",cap_main_08:"Salón Terraza Este",cap_main_09:"Vista desde la terraza a la fuente",cap_main_10:"Vista desde el salón al comedor",cap_main_11:"Habitación infantil",cap_main_12:"Despacho",cap_main_13:"Dormitorio",cap_main_14:"Terraza oeste",cap_main_15:"Sala de la torre",cap_main_16:"Terraza sala de la torre",cap_main_17:"Baño sala de la torre",cap_main_18:"Vista desde la terraza de la torre al Montgó",
@@ -935,6 +980,7 @@ const I18N={
   prox_kicker:"Ligging & bereikbaarheid",prox_title:"Vijf minuten tot de zee",prox_video_note:"Dronevideo: vlucht van het huis naar de zee — volgt",prox_min_harbour:"min haven",prox_min_beach:"min strand",prox_min_town:"min centrum",prox_by_car:"met de auto",prox_legend_harbour:"Route naar de jachthaven",prox_legend_beach:"Route naar Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"Te voet naar het strand · ca. 15 min.",
   emo_kicker:"Voel het verschil",emo_title:"Een huis dat u voelt",emo1_title:"Rust & ontspanning",emo1_text:"Begin uw ochtend met uitzicht op de Montgó. De stilte, de lucht, de vrijheid — hier vindt u echte rust, ver van het dagelijks leven.",emo2_title:"Samenzijn & familie",emo2_text:"Drie appartementen, eindeloze mogelijkheden. Uw familie heeft ruimte om te ademen, te spelen, samen te zijn. Of nodig vrienden uit — de ruimte is er.",emo3_title:"Privacy & exclusiviteit",emo3_text:"955 m² volledige privacy. Niemand kijkt naar binnen; u kijkt naar buiten op uw eigen groene tuin. Uw persoonlijk toevluchtsoord aan de Costa Blanca.",
   con_kicker:"Contact",con_title:"Laten we over Villa Candela praten",con_sub:"Rechtstreeks met de eigenaren — persoonlijk en gelijkwaardig. Wij horen graag van u.",con_wa:"Bericht via WhatsApp",con_noagent:"Direct contact met de eigenaren · Persoonlijke begeleiding tot de bezichtiging",con_instagram:"Volgen op Instagram",
+  wa_prefill:"Hallo Armin, ik heb interesse in Villa Candela in Dénia en zou graag meer informatie ontvangen.",wa_modal_title:"Chat via je telefoon",wa_modal_text:"Scan deze QR-code met de camera van je telefoon om de WhatsApp-chat direct te openen.",wa_modal_close:"Sluiten",
   foot_loc:"Dénia · San Nicolás · Costa Blanca · Spanje",foot_imprint:"Colofon",foot_privacy:"Privacy",foot_rights:"Particuliere verkoop door de eigenaren",
   cap_ext_01:"Zwembad en toren",cap_ext_02:"Zuidtuin",cap_ext_03:"Terras Appartement 2",cap_ext_04:"Zwembad",cap_ext_05:"Ontspannen in de zon",cap_ext_06:"Noordtuin",cap_ext_07:"Oprit en garagedeur",cap_ext_08:"Oprit – uitzicht naar het westen",cap_ext_09:"Fontein met zithoek",cap_ext_10:"Fontein met barbecueruimte",cap_ext_11:"Fonteindetail",cap_ext_12:"Gebouwdetail",
   cap_main_01:"Entree",cap_main_02:"Keuken met zicht op de open haard",cap_main_03:"Keuken",cap_main_04:"Zicht richting woonkamer",cap_main_05:"Eetkamer",cap_main_06:"Zicht vanuit eetkamer richting open haard",cap_main_07:"Woonkamer",cap_main_08:"Woonkamer Oosterterras",cap_main_09:"Zicht van het terras op de fontein",cap_main_10:"Zicht vanuit woonkamer naar eetkamer",cap_main_11:"Kinderkamer",cap_main_12:"Werkkamer",cap_main_13:"Slaapkamer",cap_main_14:"Westerterras",cap_main_15:"Torenkamer",cap_main_16:"Terras torenkamer",cap_main_17:"Badkamer torenkamer",cap_main_18:"Zicht van terras torenkamer op de Montgó",
@@ -970,6 +1016,7 @@ const I18N={
   prox_kicker:"Situation et accès",prox_title:"Cinq minutes jusqu'à la mer",prox_video_note:"Vidéo drone : vol de la maison vers la mer — à venir",prox_min_harbour:"min port",prox_min_beach:"min plage",prox_min_town:"min centre",prox_by_car:"en voiture",prox_legend_harbour:"Itinéraire vers le port",prox_legend_beach:"Itinéraire vers Las Rotas",prox_legend_villa:"Villa Candela",prox_legend_walk:"À pied jusqu'à la plage · env. 15 min.",
   emo_kicker:"Ressentir la différence",emo_title:"Une maison qui se ressent",emo1_title:"Calme & sérénité",emo1_text:"Commencez votre matinée avec vue sur le Montgó. Le silence, l'air, la liberté — ici, on trouve un vrai repos, loin du quotidien.",emo2_title:"Partage & famille",emo2_text:"Trois appartements, des possibilités infinies. Votre famille a de l'espace pour respirer, jouer, être ensemble. Ou invitez des amis — la place est là.",emo3_title:"Intimité & exclusivité",emo3_text:"955 m² de total intimité. Personne ne regarde à l'intérieur ; vous regardez votre propre jardin vert. Votre retraite personnelle sur la Costa Blanca.",
   con_kicker:"Contact",con_title:"Parlons de la Villa Candela",con_sub:"Directement avec les propriétaires — personnellement et d'égal à égal. Au plaisir de vous lire.",con_wa:"Écrire sur WhatsApp",con_noagent:"Contact direct avec les propriétaires · Accompagnement personnel jusqu'à la visite",con_instagram:"Suivre sur Instagram",
+  wa_prefill:"Bonjour Armin, je suis intéressé(e) par Villa Candela à Dénia et souhaiterais recevoir plus d'informations.",wa_modal_title:"Discutez depuis votre téléphone",wa_modal_text:"Scannez ce code QR avec l'appareil photo de votre téléphone pour ouvrir directement la discussion WhatsApp.",wa_modal_close:"Fermer",
   foot_loc:"Dénia · San Nicolás · Costa Blanca · Espagne",foot_imprint:"Mentions légales",foot_privacy:"Confidentialité",foot_rights:"Vente privée par les propriétaires",
   cap_ext_01:"Piscine et tour",cap_ext_02:"Jardin sud",cap_ext_03:"Terrasse Appartement 2",cap_ext_04:"Piscine",cap_ext_05:"Se détendre au soleil",cap_ext_06:"Jardin nord",cap_ext_07:"Allée et porte de garage",cap_ext_08:"Allée – vue vers l'ouest",cap_ext_09:"Fontaine avec coin salon",cap_ext_10:"Fontaine avec coin barbecue",cap_ext_11:"Détail fontaine",cap_ext_12:"Détail bâtiment",
   cap_main_01:"Entrée",cap_main_02:"Cuisine avec vue sur la cheminée",cap_main_03:"Cuisine",cap_main_04:"Vue vers le salon",cap_main_05:"Salle à manger",cap_main_06:"Vue depuis la salle à manger vers la cheminée",cap_main_07:"Salon",cap_main_08:"Salon Terrasse Est",cap_main_09:"Vue depuis la terrasse sur la fontaine",cap_main_10:"Vue du salon vers la salle à manger",cap_main_11:"Chambre d'enfant",cap_main_12:"Bureau",cap_main_13:"Chambre",cap_main_14:"Terrasse ouest",cap_main_15:"Chambre de la tour",cap_main_16:"Terrasse de la chambre de la tour",cap_main_17:"Salle de bain de la chambre de la tour",cap_main_18:"Vue depuis la terrasse de la tour sur le Montgó",
@@ -1005,6 +1052,7 @@ const I18N={
   prox_kicker:"Расположение и доступность",prox_title:"Пять минут до моря",prox_video_note:"Видео с дрона: полёт от дома к морю — скоро",prox_min_harbour:"мин порт",prox_min_beach:"мин пляж",prox_min_town:"мин центр",prox_by_car:"на машине",prox_legend_harbour:"Маршрут до яхтенного порта",prox_legend_beach:"Маршрут до Лас-Ротас",prox_legend_villa:"Villa Candela",prox_legend_walk:"Пешком до пляжа · ок. 15 мин.",
   emo_kicker:"Почувствуйте разницу",emo_title:"Дом, который ощущаешь",emo1_title:"Покой & отдых",emo1_text:"Начните утро с видом на Монгó. Тишина, воздух, свобода — здесь находят настоящий отдых, вдали от повседневной суеты.",emo2_title:"Единение & семья",emo2_text:"Три апартамента, безграничные возможности. Ваша семья имеет пространство для дыхания, игр и совместного времяпровождения. Или пригласите друзей — места хватит.",emo3_title:"Приватность & эксклюзивность",emo3_text:"955 м² полной приватности. Никто не заглядывает внутрь; вы смотрите на собственный зелёный сад. Ваше личное убежище на Коста-Бланке.",
   con_kicker:"Контакт",con_title:"Поговорим о Villa Candela",con_sub:"Напрямую с владельцами — лично и на равных. Будем рады вашему сообщению.",con_wa:"Написать в WhatsApp",con_noagent:"Прямой контакт с владельцами · Личное сопровождение до просмотра",con_instagram:"Подписаться в Instagram",
+  wa_prefill:"Здравствуйте, Армин! Меня интересует Villa Candela в Дении, хотелось бы получить дополнительную информацию.",wa_modal_title:"Общайтесь с телефона",wa_modal_text:"Отсканируйте этот QR-код камерой телефона, чтобы сразу открыть чат в WhatsApp.",wa_modal_close:"Закрыть",
   foot_loc:"Дения · Сан-Николас · Коста-Бланка · Испания",foot_imprint:"Импрессум",foot_privacy:"Конфиденциальность",foot_rights:"Частная продажа владельцами",
   cap_ext_01:"Бассейн и башня",cap_ext_02:"Южный сад",cap_ext_03:"Терраса Апартаментов 2",cap_ext_04:"Бассейн",cap_ext_05:"Отдых на солнце",cap_ext_06:"Северный сад",cap_ext_07:"Въезд и гаражные ворота",cap_ext_08:"Въезд – вид на запад",cap_ext_09:"Фонтан с зоной отдыха",cap_ext_10:"Фонтан с зоной барбекю",cap_ext_11:"Детали фонтана",cap_ext_12:"Детали здания",
   cap_main_01:"Входная зона",cap_main_02:"Кухня с видом на камин",cap_main_03:"Кухня",cap_main_04:"Вид в сторону гостиной",cap_main_05:"Столовая",cap_main_06:"Вид из столовой в сторону камина",cap_main_07:"Гостиная",cap_main_08:"Гостиная Восточная терраса",cap_main_09:"Вид с террасы на фонтан",cap_main_10:"Вид из гостиной в столовую",cap_main_11:"Детская",cap_main_12:"Кабинет",cap_main_13:"Спальня",cap_main_14:"Западная терраса",cap_main_15:"Комната в башне",cap_main_16:"Терраса комнаты в башне",cap_main_17:"Ванная комнаты в башне",cap_main_18:"Вид с террасы башни на Монтго",
