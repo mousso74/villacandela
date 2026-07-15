@@ -160,6 +160,7 @@ try{ if(localStorage.getItem('vc_consent')==='granted'){ window.initMetaPixel();
   .viewing-banner:hover{background:#B5673B}
   .vb-dot{width:.55rem;height:.55rem;border-radius:9999px;background:#FAF6EE;flex:0 0 auto;animation:vbPulse 1.6s ease-in-out infinite}
   @keyframes vbPulse{0%,100%{opacity:1}50%{opacity:.3}}
+  @media (min-width:900px){.vb-wrap{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}.viewing-banner{white-space:nowrap;max-width:none}}
 </style>
 </head>
 <body class="font-sans antialiased">
@@ -225,7 +226,7 @@ try{ if(localStorage.getItem('vc_consent')==='granted'){ window.initMetaPixel();
     </svg>
     <h1 class="font-serif text-white text-5xl sm:text-6xl md:text-8xl leading-none mb-10">Villa&nbsp;Candela</h1>
     <a href="#contact" class="inline-block bg-amber text-cream px-10 py-4 rounded-full text-sm uppercase tracking-wider hover:bg-ember transition" data-i18n="hero_cta1">Besichtigung anfragen</a>
-    <div class="mt-6">
+    <div class="vb-wrap mt-6">
       <a href="https://wa.me/491792955522" target="_blank" rel="noopener" onclick="handleWa(event,'viewing_banner_hero')" class="viewing-banner">
         <span class="vb-dot" aria-hidden="true"></span>
         <span data-i18n="vb_text">Wir sind vom 20.–24. Juli persönlich vor Ort — Besichtigungen diese Woche möglich. Termin per WhatsApp.</span>
@@ -663,7 +664,7 @@ try{ if(localStorage.getItem('vc_consent')==='granted'){ window.initMetaPixel();
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
       <span data-i18n="con_noagent">Direkter Kontakt mit den Eigentümern · Persönliche Begleitung bis zur Besichtigung</span>
     </div>
-    <div class="mb-10">
+    <div class="vb-wrap mb-10">
       <a href="https://wa.me/491792955522" target="_blank" rel="noopener" onclick="handleWa(event,'viewing_banner_contact')" class="viewing-banner">
         <span class="vb-dot" aria-hidden="true"></span>
         <span data-i18n="vb_text">Wir sind vom 20.–24. Juli persönlich vor Ort — Besichtigungen diese Woche möglich. Termin per WhatsApp.</span>
@@ -1010,7 +1011,7 @@ const I18N={
   alt_paradise_01:"Terraza techo torre – vistas privadas",alt_paradise_02:"Villa Candela – vista aérea",alt_paradise_03:"Jardín privado – oasis verde"},
 
  nl:{nav_highlights:"Hoogtepunten",nav_gallery:"Galerij",nav_units:"Eenheden",nav_data:"Objectdata",nav_location:"Ligging",nav_story:"Verhaal",nav_experience:"Bezichtiging",nav_cta:"Contact",
-  hero_tagline:"Een huis voor gedeelde tijd – en eigen ruimtes.",hero_kicker:"Dénia · Costa Blanca · aan de voet van de Montgó",hero_sub:"Hoofdwoning met torensuite en twee zelfstandige appartementen op de begane grond op 955 m² privégrond — 30 jaar in familiebezit, liefdevol onderhouden en gemoderniseerd, op minuten van haven, strand en oude stad van Dénia.",hero_cta1:"Bezichtiging aanvragen",hero_cta2:"Ontdek de beleving",vb_text:"Wij zijn van 20 t/m 24 juli persoonlijk in Dénia — bezichtigingen deze week mogelijk. Afspraak via WhatsApp.",
+  hero_tagline:"Een huis voor gedeelde tijd – en eigen ruimtes.",hero_kicker:"Dénia · Costa Blanca · aan de voet van de Montgó",hero_sub:"Hoofdwoning met torensuite en twee zelfstandige appartementen op de begane grond op 955 m² privégrond — 30 jaar in familiebezit, liefdevol onderhouden en gemoderniseerd, op minuten van haven, strand en oude stad van Dénia.",hero_cta1:"Bezichtiging aanvragen",hero_cta2:"Ontdek de beleving",vb_text:"20–24 juli persoonlijk in Dénia — bezichtiging via WhatsApp",
   band_1:"1 min naar de jachthaven",band_2:"enkele minuten naar strand Las Rotas",band_3:"5–10 min lopen naar de oude stad",band_4:"aan de voet van de Montgó",band_car:"Met de auto: 5 min naar de jachthaven · 2 min naar strand Las Rotas · 7 min naar de oude stad",band_walk:"Te voet: 20 min naar de jachthaven · 10 min naar het strand · 30 min naar de oude stad",
   fact_units:"wooneenheden",fact_living:"m² woonopp.",fact_plot:"m² perceel",fact_beds:"slaapkamers",fact_baths:"badkamers",fact_pool:"zwembad & tuin",
   usp_kicker:"Wat het bijzonder maakt",usp_title:"Eén huis, vele mogelijkheden",usp_sub:"Zelden verenigt een woning zoveel privacy, flexibiliteit en ligging — gebouwd en onderhouden door een familie van architecten en ingenieurs.",
@@ -1046,7 +1047,7 @@ const I18N={
   alt_paradise_01:"Dakterras torenkamer – privéuitzicht",alt_paradise_02:"Villa Candela – luchtfoto",alt_paradise_03:"Privétuin – groene oase"},
 
  fr:{nav_highlights:"Atouts",nav_gallery:"Galerie",nav_units:"Logements",nav_data:"Données",nav_location:"Emplacement",nav_story:"Histoire",nav_experience:"Visite",nav_cta:"Contact",
-  hero_tagline:"Une maison pour des moments partagés – et des espaces bien à soi.",hero_kicker:"Dénia · Costa Blanca · au pied du Montgó",hero_sub:"Résidence principale avec suite dans la tour et deux appartements indépendants au rez-de-chaussée sur 955 m² de jardin privé — 30 ans en propriété familiale, entretenue et modernisée avec soin, à quelques minutes du port, de la plage et de la vieille ville de Dénia.",hero_cta1:"Demander une visite",hero_cta2:"Découvrir l'expérience",vb_text:"Nous serons à Dénia en personne du 20 au 24 juillet — visites possibles cette semaine. Rendez-vous via WhatsApp.",
+  hero_tagline:"Une maison pour des moments partagés – et des espaces bien à soi.",hero_kicker:"Dénia · Costa Blanca · au pied du Montgó",hero_sub:"Résidence principale avec suite dans la tour et deux appartements indépendants au rez-de-chaussée sur 955 m² de jardin privé — 30 ans en propriété familiale, entretenue et modernisée avec soin, à quelques minutes du port, de la plage et de la vieille ville de Dénia.",hero_cta1:"Demander une visite",hero_cta2:"Découvrir l'expérience",vb_text:"À Dénia du 20 au 24 juillet — visites via WhatsApp",
   band_1:"1 min du port de plaisance",band_2:"quelques minutes de la plage de Las Rotas",band_3:"5–10 min à pied de la vieille ville",band_4:"au pied du Montgó",band_car:"En voiture : 5 min du port · 2 min de la plage de Las Rotas · 7 min de la vieille ville",band_walk:"À pied : 20 min du port · 10 min de la plage · 30 min de la vieille ville",
   fact_units:"logements",fact_living:"m² habitables",fact_plot:"m² de terrain",fact_beds:"chambres",fact_baths:"salles de bain",fact_pool:"piscine & jardin",
   usp_kicker:"Ce qui la distingue",usp_title:"Une maison, mille possibilités",usp_sub:"Rares sont les propriétés réunissant autant d'intimité, de flexibilité et de qualité d'emplacement — bâtie et entretenue par une famille d'architectes et d'ingénieurs.",
